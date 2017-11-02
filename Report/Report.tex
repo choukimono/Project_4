@@ -1,0 +1,352 @@
+\documentclass[a4paper, twoside, 11pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[top= 120pt, left=80pt, right=80pt]{geometry} %marges
+\usepackage{setspace} %interlignage
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{lmodern} 
+\usepackage{array}
+\usepackage{csquotes}
+\usepackage[numbers,square]{natbib}
+\usepackage{soul}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{adjustbox}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{dsfont}
+%%\usepackage{braket}
+\usepackage{physics}
+\usepackage{amsfonts}
+\usepackage[numbers,square]{natbib}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{wasysym}
+
+%%%%%% COULEURS CODE C++
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{red},
+  commentstyle=\itshape\color{gray},
+  identifierstyle=\color{NavyBlue},
+  stringstyle=\color{black},
+}
+
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+
+\lstset{escapechar=@,style=customc}
+
+%%%%%% STYLES DE THÉORÈMES
+
+\newtheoremstyle{theorem}%	Name
+  {}%	Space above
+  {}%	Space below
+  {}%	Body font
+  {}%	Indent amount
+  {\bfseries}%	Theorem head font
+  {.}%	Punctuation after theorem head
+  { }%	Space after theorem head, ' ', or \newline
+  {}%	Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{exemple}%	Name
+  {}%	Space above
+  {}%	Space below
+  {\color{Gray}\itshape}%	Body font
+  {}%	Indent amount
+  {\color{Gray}\itshape}%	Theorem head font
+  {.}%	Punctuation after theorem head
+  { }%	Space after theorem head, ' ', or \newline
+  {}%	Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{remark}%	Name
+  {}%	Space above
+  {}%	Space below
+  {\itshape}%	Body font
+  {}%	Indent amount
+  {\bfseries}%	Theorem head font
+  {.}%	Punctuation after theorem head
+  { }%	Space after theorem head, ' ', or \newline
+  {}%	Theorem head spec (can be left empty, meaning `normal')
+  
+%%%%%% DÉCLARATION DES THÉORÈMES
+
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemme}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[chapter]
+
+\theoremstyle{exemple}
+\newtheorem*{exemple}{Example}
+
+
+%%%%%% COMMANDES QUI SIMPLIFIENT LA VIE
+
+\newcommand{\legende}[1]{
+\begin{center}
+	\begin{minipage}{12cm}
+		\begin{center}
+			\textit{\textcolor{WildStrawberry!30}{#1}}
+		\end{center}
+	\end{minipage}
+\end{center}}
+
+\newcommand{\sherlock}[2]{
+	\begin{equation}
+		\textcolor{WildStrawberry}{#1}
+	\end{equation}
+	\legende{#2}
+}
+	
+\newcommand{\sherlocked}[1]{
+	\begin{equation}
+		\textcolor{WildStrawberry}{#1}
+	\end{equation}
+}
+
+	
+\newcommand{\defSherlock}[3]{
+	\begin{definition}[\textbf{#1}]
+		\sherlock{#2}{#3}
+	\end{definition}
+}
+
+\newcommand{\defSherlocked}[2]{
+	\begin{definition}[\textbf{#1}]
+		\sherlocked{#2}
+	\end{definition}
+}	
+
+\newcommand{\propSherlock}[3]{
+	\begin{proposition}[\textbf{#1}]
+		\sherlock{#2}{#3}
+	\end{proposition}
+}
+
+\newcommand{\propSherlocked}[2]{
+	\begin{proposition}[\textbf{#1}]
+		\sherlocked{#2}
+	\end{proposition}
+}
+
+\newcommand{\textSherlocked}[1]{
+	\begin{center}
+		\textcolor{WildStrawberry}{#1}
+	\end{center}
+}
+
+\newcommand{\mimi}{\mathrm{Je\ t'aime}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{FYS3150\\Project 4 - }
+\author{Ethel Villeneuve}
+\date{October 2017 \\University of Oslo \\ \url{https://github.com/choukimono/Project_4.git}}
+
+
+
+\begin{document}
+\selectlanguage{english}
+\maketitle
+	
+	
+\begin{abstract}
+    
+    \paragraph{}
+    
+\end{abstract}
+
+
+\tableofcontents
+
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+    \paragraph{}
+    
+
+\chapter{Theory}
+    
+    \section{The Ising model}
+    
+        \subsection{The general model}
+        
+            \paragraph{}The Ising model is a mathematical model used in statistical mechanics. It consists of discrete variables, which represent the magnetic moment of the spin, which can take the value $+1$ or $-1$. The spins will only interact with their direct neighbors. With this model, we can study the phase transitions at finite temperature for magnetic systems. We can expressed the energy as 
+                
+                \begin{equation*}
+                    E = -J \sum\limits_{<kl>}^{N}s_ks_l - B \sum\limits_{k}^{N}s_k
+                    \tag{1}
+                \end{equation*}
+            %Mets pas de saut de ligne ici patate, ça évitera l'alinéa moche.
+            with $J$ a constant expressing the strength of the interaction between the neighboring spins, $<kl>$ indicating the fact that we only sum the nearest neighbors, $N$ the number of spins, $s_{k,l} = \pm 1$ and $B$ an external magnetic field interacting with the magnetic moment set up by the spins. \\
+            
+            This is the general expression of the Ising model. For our use, we will only focus on the case where $B=0$. \\
+            Then, we will be able to calculate expectation values of the mean energy $<E>$ and magnetization $<M>$ at a given temperature. To do this, we will use a Boltzmann distribution
+            
+                \begin{equation*}
+                    P_i(\beta) = \frac{e^{-\beta E_i}}{Z}
+                \end{equation*}
+             %blblbl
+            where $P_i$ is the probability of finding the system in the state $i$, $\beta = \frac{1}{kT}$, $T$ being the temperature and $k$ the Boltzmann constant, $E_i$ is the energy of a state $i$ and $Z$ is the partition function defined by $\displaystyle Z = \sum\limits_{i=1}^{M}e^{-\beta E_i}$ with $M$ the number of states. $E_i$, which is the energy in the state $i$, is given by 
+            
+                \begin{equation*}
+                    E_i = -J \sum\limits_{<kl>}^{N}s_ks_l 
+                    \tag{2}
+                \end{equation*}
+            with $k,l$ the different spins of the state $i$.
+                
+            A simple particular case of the Ising model, the two-dimensional square lattice model, allows us to have an analytical solution. 
+        
+        \subsection{Two-dimensional square lattice model}
+        
+            \paragraph{}This particular case is one of the simplest models to show a phase transition. It is defined by conditions : the external magnetic field $B=0$, this is a two-dimensional lattice with N sites, with periodic boundary conditions. Let's take the case with $N=2\times2$ spins. We have $2^4 = 16$ different states with those conditions. We reuse the equation (2) to find the energy of each configuration with the spins-up taking the value $+1$ and the spins-down taking the value $-1$. Let's take for example the case where three spins are pointing up (and so one is pointing down) numbered from 1 to 4 :
+                $\begin{matrix}
+                    \downarrow ^{(1)} & \uparrow ^{(2)}\\
+                    \uparrow ^{(3)} & \uparrow ^{(4)}
+                \end{matrix}$.
+                
+                \begin{align*}
+                    E &= -J \sum\limits_{<kl>}^{4}s_ks_l \\
+                      &= -J (s_1s_2 + s_2s_1 + s_1s_3 + s_3s_1 + s_2s_4 + s_4s_2 + s_3s_4 + s_4s_3) \\
+                      &= -J \left[(-1) + (-1) + (-1) + (-1) + 1 + 1 + 1 + 1\right] = -J \times 0 \\
+                    E &= 0 
+                \end{align*}
+                
+            The magnetization formula is $\displaystyle M = \sum\limits_{k}^{N} s_k$. So in our example, we have 
+                
+                \begin{align*}
+                    M &= s_1 + s_2 + s_3 + s_4 \\
+                      &= (-1) + 1 + 1 + 1 \\
+                    M &= 2
+                \end{align*}
+            
+            The following table sums up all the possible states of a two-dimensional square lattice model.
+            
+                \begin{center}
+                    \begin{tabular}{|*{8}{c|}}
+                            \hline
+                        Number of spins-up & \multicolumn{4}{c|}{Possible configurations} & Degeneracy & Energy & Magnetization \\
+                            \hline
+                            \hline
+                        $4$ & \multicolumn{4}{c|}{$\begin{matrix}
+                                   \uparrow & \uparrow \\
+                                   \uparrow & \uparrow
+                                \end{matrix}$} & $1$ & $-8J$ & $4$ \\
+                            \hline
+                        $3$ & $\begin{matrix}
+                            \downarrow & \uparrow \\
+                            \uparrow & \uparrow
+                        \end{matrix}$ & $\begin{matrix}
+                                            \uparrow & \downarrow \\
+                                            \uparrow & \uparrow
+                                         \end{matrix}$ & $\begin{matrix}
+                                                               \uparrow & \uparrow \\
+                                                               \downarrow & \uparrow
+                                                           \end{matrix}$ & $\begin{matrix}
+                                                                                \uparrow & \uparrow \\
+                                                                                \uparrow & \downarrow
+                                                                            \end{matrix}$ & $4$ & $0$ & $2$ \\
+                            \hline
+                        $2$ & $\begin{matrix}
+                                   \uparrow & \uparrow \\
+                                   \downarrow & \downarrow
+                               \end{matrix}$ & $\begin{matrix}
+                                                     \downarrow & \downarrow \\
+                                                     \uparrow & \uparrow
+                                                \end{matrix}$ & $\begin{matrix}
+                                                                    \uparrow & \downarrow \\
+                                                                    \uparrow & \downarrow
+                                                                 \end{matrix}$ & $\begin{matrix}
+                                                                     \downarrow & \uparrow \\
+                                                                     \downarrow & \uparrow
+                                                                \end{matrix}$ & $4$ & $0$ & $0$ \\
+                            \hline
+                        $2$ & \multicolumn{2}{c|}{$\begin{matrix}
+                                    \uparrow & \downarrow \\
+                                    \downarrow & \uparrow
+                                \end{matrix}$} & \multicolumn{2}{c|}{$\begin{matrix}
+                                                     \downarrow & \uparrow \\
+                                                     \uparrow & \downarrow
+                                                  \end{matrix}$} & $2$ & $8J$ & $0$ \\
+                            \hline
+                        $1$ & $\begin{matrix}
+                            \downarrow & \downarrow \\
+                            \downarrow & \uparrow
+                        \end{matrix}$ & $\begin{matrix}
+                                            \downarrow & \downarrow \\
+                                            \uparrow & \downarrow
+                                         \end{matrix}$ & $\begin{matrix}
+                                                               \downarrow & \uparrow \\
+                                                               \downarrow & \downarrow
+                                                           \end{matrix}$ & $\begin{matrix}
+                                                                                \uparrow & \downarrow \\
+                                                                                \downarrow & \downarrow
+                                                                            \end{matrix}$ & $4$ & $0$ & $-2$ \\
+                            \hline
+                        $0$ & \multicolumn{4}{c|}{$\begin{matrix}
+                                                       \downarrow & \downarrow \\
+                                                       \downarrow & \downarrow
+                                                     \end{matrix}$} & $1$ & $-8J$ & $-4$ \\
+                            \hline            
+                    \end{tabular}
+                    Table : Energy and magnetization for a $N = 2\times 2$-spin Ising model with periodic boundary conditions.
+                \end{center}
+                
+    \section{}
+    
+    
+    \section{}
+
+
+
+\chapter{Implementation}
+
+
+\chapter{Results}
+
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+    \paragraph{}
+    
+
+\chapter*{Bibliography}
+    
+    \begin{itemize}
+        \item
+    \end{itemize}
+    
+
+\end{document}
