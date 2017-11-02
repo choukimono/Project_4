@@ -322,6 +322,15 @@
                     \end{tabular}
                     Table : Energy and magnetization for a $N = 2\times 2$-spin Ising model with periodic boundary conditions.
                 \end{center}
+            
+            The 16 configurations known, we can calculate the partition function in its analytic form. 
+            
+                \begin{align*}
+                    Z &= \sum\limits_{i=1}^{16}e^{-\beta E_i} \\
+                    Z &= (1 \times e^{-\beta \times (-8J)}) + (4 \times e^{-\beta \times 0}) + (4 \times e^{-\beta \times 0}) + (2 \times e^{-\beta \times 8J}) + (4 \times e^{-\beta \times 0}) + (1 \times e^{-\beta \times (-8J)}) \\   
+                    Z &= 2(e^{8J\beta} + e^{-8J\beta} + 6) \\
+                    Z &= 4[\cosh(8J\beta) + 3]           
+                \end{align*}
                 
     \section{}
     
