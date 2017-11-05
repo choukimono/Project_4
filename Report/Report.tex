@@ -182,7 +182,9 @@
 	
 \begin{abstract}
     
-    \paragraph{}
+    \paragraph{}In this project, we want to implement the Ising model, in the case of a two-dimensional squared lattice, with periodic boundary conditions. In this lattice, we have $L\times L$ particles characterized by their spin (up or down). The starting point of the program will be a random lattice or a lattice with all the spins-up. The Metropolis algorithm will be run in a lattice $20\times20$ and then bigger. We will study the properties of the system : the mean energy $E$, the mean magnetization $|M|$, the specific heat and the susceptibility $\chi$ as function of the temperature. The purpose is then to study the phase transitions. We will again study these properties near the critical temperature (Curie point).
+    
+    \paragraph{}Quelques résultats...
     
 \end{abstract}
 
@@ -361,20 +363,20 @@
                     \langle E \rangle &= -8J \frac{\sinh (8J\beta)}{\cosh (8J\beta) + 3}  \tag{5'}
                 \end{align*}
             
-            Similarly, we compute the mean value of the magnetic moment (or mean magnetization) $\langle M \rangle$ :
+            Similarly, we compute the mean value of the magnetic moment (or mean magnetization) in its absolute value $\langle |M| \rangle$ :
             
                 \begin{equation*}
-                    \langle M \rangle = \sum\limits_{i=1}^{M}M_iP_i(\beta) = \frac{1}{Z}\sum\limits_{i=1}^{M}M_i e^{-\beta E_i}
+                    \langle |M| \rangle = \sum\limits_{i=1}^{M}|M_i|P_i(\beta) = \frac{1}{Z}\sum\limits_{i=1}^{M}|M_i| e^{-\beta E_i}
                 \end{equation*}
                 
                 \begin{equation*}
-                    \langle M \rangle = \frac{1}{Z} \left(4 e^{8J\beta} + 4 \times 2 e^{0} + 4 \times (-2) e^{0} + (-4) e^{8J\beta}\right) 
+                    \langle |M| \rangle = \frac{1}{Z} \left(4 e^{8J\beta} + 4 \times 2 e^{0} + 4 \times 2 e^{0} + 4 e^{8J\beta}\right) 
                 \end{equation*}
                 
-                \begin{equation*}
-                    \langle M \rangle = 0
-                    \tag{6}
-                \end{equation*}
+                \begin{align*}
+                    \langle |M| \rangle &= \frac{8e^{8J\beta}+16}{Z} \tag{6} \\
+                    \langle |M| \rangle &= \frac{4e^{8J\beta}+8}{e^{8J\beta}+e^{-8J\beta}+6}
+                \end{align*}
             %
             which match with the fact that we have taken the external magnetic field $B=0$.
             
@@ -417,25 +419,26 @@
             Similarly, to have the susceptibility $\chi$, which is its capacity to be attracted or not into a magnetic field, defined by
             
                 \begin{equation*}
-                    \chi = \frac{\langle M^2 \rangle - \langle M \rangle ^2}{kT^2},
+                    \chi = \frac{\langle |M|^2 \rangle - \langle |M| \rangle ^2}{kT},
                 \end{equation*}
             %
-            we start by computing $\langle M^2 \rangle$ :
+            we start by computing $\langle |M|^2 \rangle$ :
             
                 \begin{align*}
-                    \langle M^2 \rangle &= \sum\limits_{i=1}^{M} M_i^2P_i(\beta) = \frac{1}{Z}\sum\limits_{i=1}^{M}M_i^2 e^{-\beta E_i} \\
-                    &= \frac{1}{Z}\left(4^2e^{8J\beta} + 4 \times 2^2 e^{0} + 4 \times (-2)^2 e^{0} + (-4)^2e^{8J\beta}\right) 
+                    \langle |M|^2 \rangle &= \sum\limits_{i=1}^{M} |M_i|^2P_i(\beta) = \frac{1}{Z}\sum\limits_{i=1}^{M}|M_i|^2 e^{-\beta E_i} \\
+                    &= \frac{1}{Z}\left(4^2e^{8J\beta} + 4 \times 2^2 e^{0} + 4 \times 2^2 e^{0} + 4^2e^{8J\beta}\right) 
                 \end{align*}
                 
                 \begin{align*}
-                    \langle M^2 \rangle &= \frac{1}{Z}\left( 32e^{8J\beta} + 32 \right) \tag{9}\\
-                    \langle M^2 \rangle &= 16 \frac{e^{8J\beta}+1}{e^{8J\beta} + e^{-8J\beta} + 6}
+                    \langle |M|^2 \rangle &= \frac{1}{Z}\left( 32e^{8J\beta} + 32 \right) \tag{9}\\
+                    \langle |M|^2 \rangle &= 16 \frac{e^{8J\beta}+1}{e^{8J\beta} + e^{-8J\beta} + 6}
                 \end{align*}
                 
             Using (6), we can write
             
                 \begin{align*}
-                    \chi = \frac{32(e^{8J\beta} + 1)}{ZkT^2} \tag{10}
+                    \chi &= \frac{1}{ZkT}\left[\left(32e^{8J\beta}+32\right)-\left(\frac{(8e^{8J\beta}+16)^2}{Z}\right)\right] \tag{10}\\
+                    \chi &= \frac{16}{kT}\left[\frac{3e^{8J\beta}+e^{-8J\beta}+3}{(e^{8J\beta}+e^{-8J\beta}+6)^2}\right] \\
                 \end{align*}
                   
         \subsection{The most likely state}
@@ -458,11 +461,11 @@
             We have similar expression for the heat capacity and the susceptibility : 
             
                 \begin{equation*}
-                    C_V(T) \sim |T_C - T | ^{\alpha}
+                    C_V(T) \sim |T_C - T | ^{-\alpha}
                 \end{equation*}
                 
                 \begin{equation*}
-                    \chi(T) \sim |T_C - T |^{\gamma}
+                    \chi(T) \sim |T_C - T |^{-\gamma}
                 \end{equation*}
             %
             with $\alpha = 0$ and $\gamma=\frac{7}{4}$ two other critical exponents.\\
@@ -472,17 +475,67 @@
                     \xi (T) \sim |T_C - T |^{-\nu},
                 \end{equation*}
             %
-            defining the constant $\nu$. 
+            defining the constant $\nu$.\\
+            When the correlation length spans the whole system, we say that we have a second-order (or continuous) phase transition. $\xi$ is proportional to the size of the lattice $L$ at the critical point ($\xi \propto L$), as it is always finite. With the finite size scaling relations, we can relate the temperature for a finite lattice and the one for an infinite lattice :
+            
+                \begin{equation*}
+                    T_C(L) - T_C (L=\infty) = aL^{-\frac{1}{\nu}}
+                \end{equation*}
+            %
+            with $a$ a constant.\\
+            With the last equation, we can write :
+            
+                \begin{equation*}
+                    \langle M(T) \rangle \sim (T-T_C)^{\beta} \rightarrow L^{-\frac{\beta}{\nu}}
+                \end{equation*}
+                
+                \begin{equation*}
+                    C_V(T) \sim |T_C -T|^{-\alpha} \rightarrow L^{\frac{\alpha}{\nu}}
+                \end{equation*}
+                
+                \begin{equation*}
+                    \chi(T) \sim |T_C - T|^{-\gamma} \rightarrow L^{\frac{\gamma}{\nu}}
+                \end{equation*}
+            %
+            for $T$ near $T_C$.
     
     
-    \section{}
+    \section{The Metropolis algorithm}
 
 
 
 \chapter{Implementation}
 
+    \section{The Ising model}
+    
+        \subsection{}
+        
+    \section{The Metropolis algorithm}
+    
+    \section{Critical temperature}
+
+
 
 \chapter{Results}
+
+    \section{Two-dimensional squared lattice}
+    
+        \subsection{$2\times2$ case}
+        
+            \paragraph{}This very simple case allows us to test the algorithm. We just have to compare the numerical results with the theorical ones.
+            
+        \subsection{$20\times20$ case}
+        
+            \subsubsection{The most likely state}
+            
+            \subsubsection{The probability distribution of a given energy}
+    
+    \section{Phase transitions}
+    
+        \subsection{The Ising model near the critical temperature}
+        
+        \subsection{The critical temperature}
+
 
 
 \chapter*{Conclusion}
