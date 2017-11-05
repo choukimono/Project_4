@@ -202,7 +202,7 @@
     
         \subsection{The general model}
         
-            \paragraph{}The Ising model is a mathematical model used in statistical mechanics. It consists of discrete variables, which represent the magnetic moment of the spin, which can take the value $+1$ or $-1$. The spins will only interact with their direct neighbors. With this model, we can study the phase transitions at finite temperature for magnetic systems. We can expressed the energy as 
+            \paragraph{}The Ising model is a mathematical model used in statistical mechanics. It consists of discrete variables, which represent the magnetic moment of the spin, which can take only two values (here $+1$ or $-1$). The spins will only interact with their direct neighbors. With this model, we can study the phase transitions at finite temperature for magnetic systems. We can expressed the energy as 
                 
                 \begin{equation*}
                     E = -J \sum\limits_{\langle  kl\rangle}^{N}s_ks_l - B \sum\limits_{k}^{N}s_k
@@ -219,7 +219,7 @@
                     \tag{2}
                 \end{equation*}
              %blblbl
-            where $P_i$ is the probability of finding the system in the state $i$, $\beta = \frac{1}{kT}$, $T$ being the temperature and $k$ the Boltzmann constant, $E_i$ is the energy of a state $i$ and $Z$ is the partition function defined by $\displaystyle Z = \sum\limits_{i=1}^{M}e^{-\beta E_i}$ with $M$ the number of states. $E_i$, which is the energy in the state $i$, is given by 
+            where $P_i$ is the probability of finding the system in the state $i$, $\beta = \frac{1}{kT}$, $T$ being the temperature and $k$ the Boltzmann constant, $E_i$ is the energy of a state $i$ and $Z$ is the partition function defined by $\displaystyle Z = \sum\limits_{i=1}^{M}e^{-\beta E_i}$ with $M$ the number of configurations. $E_i$, which is the energy in the state $i$, is given by 
             
                 \begin{equation*}
                     E_i = -J \sum\limits_{\langle kl \rangle}^{N}s_ks_l 
@@ -437,8 +437,42 @@
                 \begin{align*}
                     \chi = \frac{32(e^{8J\beta} + 1)}{ZkT^2} \tag{10}
                 \end{align*}
+                  
+        \subsection{The most likely state}
+            
+            \paragraph{}
+            
+            
 
-    \section{}
+    \section{Phase transition}
+    
+        \subsection{}
+        
+            \paragraph{}To study the phase transitions, we consider a critical temperature. Near this temperature, a power-law applies to many physical quantities : one quantity varies as the power of another. In the Ising model, we can express the mean magnetization as 
+                
+                \begin{equation*}
+                    \langle M(T)\rangle \sim (T-T_C)^{\beta}
+                \end{equation*}
+            %
+            with $\beta = \frac{1}{8}$ one of the Ising critical exponents (in two dimensions).\\
+            We have similar expression for the heat capacity and the susceptibility : 
+            
+                \begin{equation*}
+                    C_V(T) \sim |T_C - T | ^{\alpha}
+                \end{equation*}
+                
+                \begin{equation*}
+                    \chi(T) \sim |T_C - T |^{\gamma}
+                \end{equation*}
+            %
+            with $\alpha = 0$ and $\gamma=\frac{7}{4}$ two other critical exponents.\\
+            We also defined the correlation length which is a quantity which represents how two spins are correlated. When the temperature $T$ gets closer to $T_C$, the correlation length between two spins increases. This quantity is given by 
+            
+                \begin{equation*}
+                    \xi (T) \sim |T_C - T |^{-\nu},
+                \end{equation*}
+            %
+            defining the constant $\nu$. 
     
     
     \section{}
