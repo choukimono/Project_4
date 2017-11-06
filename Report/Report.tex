@@ -439,17 +439,12 @@
                 \begin{align*}
                     \chi &= \frac{1}{ZkT}\left[\left(32e^{8J\beta}+32\right)-\left(\frac{(8e^{8J\beta}+16)^2}{Z}\right)\right] \tag{10}\\
                     \chi &= \frac{16}{kT}\left[\frac{3e^{8J\beta}+e^{-8J\beta}+3}{(e^{8J\beta}+e^{-8J\beta}+6)^2}\right] \\
-                \end{align*}
-                  
-        \subsection{The most likely state}
-            
-            \paragraph{}
-            
+                \end{align*}            
             
 
     \section{Phase transition}
     
-        \subsection{}
+        \subsection{The critical temperature}
         
             \paragraph{}To study the phase transitions, we consider a critical temperature. Near this temperature, a power-law applies to many physical quantities : one quantity varies as the power of another. In the Ising model, we can express the mean magnetization as 
                 
@@ -475,8 +470,11 @@
                     \xi (T) \sim |T_C - T |^{-\nu},
                 \end{equation*}
             %
-            defining the constant $\nu$.\\
-            When the correlation length spans the whole system, we say that we have a second-order (or continuous) phase transition. $\xi$ is proportional to the size of the lattice $L$ at the critical point ($\xi \propto L$), as it is always finite. With the finite size scaling relations, we can relate the temperature for a finite lattice and the one for an infinite lattice :
+            defining the constant $\nu$.
+            
+        \subsection{Around the critical temperature}            
+            
+            \paragraph{}When the correlation length spans the whole system, we say that we have a second-order (or continuous) phase transition. $\xi$ is proportional to the size of the lattice $L$ at the critical point ($\xi \propto L$), as it is always finite. With the finite size scaling relations, we can relate the temperature for a finite lattice and the one for an infinite lattice :
             
                 \begin{equation*}
                     T_C(L) - T_C (L=\infty) = aL^{-\frac{1}{\nu}}
@@ -501,7 +499,11 @@
     
     
     \section{The Metropolis algorithm}
-
+        
+        \subsection{Introduction to the algorithm}
+        
+            \paragraph{}The Metropolis algorithm is a Markov Chain Monte Carlo method (MCMC). We obtain a sequence of random samples from a probability distribution, here the Boltzmann distribution.\\
+            Every Monte Carlo cycle is based on a Markov process to get a new random state. A Markov process is a random walk where each move has a given probability and is independent of previous moves or states of the system. The point is to run it enough time to reach the most likely state of the system, starting with a random configuration. To reach this most likely state, and an equilibrium distribution, we need either to accept or reject the new random state. 
 
 
 \chapter{Implementation}
