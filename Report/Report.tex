@@ -29,6 +29,7 @@
 \usepackage{wasysym}
 \usepackage{algpseudocode}
 \usepackage[ruled]{algorithm2e}
+\usepackage{caption}
 
 
 %%%%%% COULEURS CODE C++
@@ -230,8 +231,7 @@
                     E_i = -J \sum\limits_{\langle kl \rangle}^{N}s_ks_l 
                     \tag{3}
                 \end{equation*}
-            with $k,l$ the different spins of the state $i$.
-                
+            with $k,l$ the different spins of the state $i$.\\  
             A simple particular case of the Ising model, the two-dimensional square lattice model, allows us to have an analytical solution. 
         
         \subsection{Two-dimensional square lattice model}
@@ -241,24 +241,24 @@
                     \downarrow ^{(1)} & \uparrow ^{(2)}\\
                     \uparrow ^{(3)} & \uparrow ^{(4)}
                 \end{matrix}$.
-                
+            %    
                 \begin{align*}
                     E &= -J \sum\limits_{\langle kl \rangle}^{4}s_ks_l \\
                       &= -J (s_1s_2 + s_2s_1 + s_1s_3 + s_3s_1 + s_2s_4 + s_4s_2 + s_3s_4 + s_4s_3) \\
                       &= -J \left[(-1) + (-1) + (-1) + (-1) + 1 + 1 + 1 + 1\right] = -J \times 0 \\
                     E &= 0 
                 \end{align*}
-                
+            %    
             The magnetization formula is $\displaystyle M = \sum\limits_{k}^{N} s_k$. So in our example, we have 
-                
+            %    
                 \begin{align*}
                     M &= s_1 + s_2 + s_3 + s_4 \\
                       &= (-1) + 1 + 1 + 1 \\
                     M &= 2
                 \end{align*}
-            
-            The following table sums up all the possible states of a two-dimensional square lattice model.
-            
+            %
+            \paragraph{}The following table sums up the possible states of a two-dimensional square lattice model.
+            %
                 \begin{center}
                     \begin{tabular}{|*{8}{c|}}
                             \hline
@@ -326,7 +326,7 @@
                                                      \end{matrix}$} & $1$ & $-8J$ & $-4$ \\
                             \hline            
                     \end{tabular}
-                    Table : Energy and magnetization for a $N = 2\times 2$-spin Ising model with periodic boundary conditions.
+                \captionof{table}{Energy and magnetization for a $N = 2\times 2$-spin Ising model with periodic boundary conditions.}
                 \end{center}
             
             The 16 configurations known, we can calculate the partition function in its analytic form. 
@@ -362,7 +362,6 @@
             So
             
                 \begin{align*}
-                    \langle E \rangle &= -J \frac{32(\sinh (8J\beta)}{4(\cosh (8J\beta) + 3)} \\ 
                     \langle E \rangle &= -8J \frac{\sinh (8J\beta)}{\cosh (8J\beta) + 3}  \tag{5'}
                 \end{align*}
             
@@ -404,7 +403,6 @@
                 \end{align*}
                 
                 \begin{align*}
-                    \langle E^2 \rangle &= J^2 \frac{256\cosh(8J\beta)}{4[\cosh(8J\beta) + 3]}\\
                     \langle E^2 \rangle &= 64J^2 \frac{\cosh(8J\beta)}{\cosh(8J\beta) +3} \tag{7'}
                 \end{align*}
             
@@ -550,14 +548,74 @@
                         $\textbf{update}$ expectation values.\;
                     } 
                   
-            \caption{Metropolis algorithm}  
+            \caption{Monte Carlo method using the Metropolis algorithm}  
             \end{algorithm}
             \end{center}
             
-            \paragraph{}In this algorithm, we go through the lattice to calculate the energy of the actual configuration of the system. This is a Monte Carlo cycle. The strength of this method is that we do not have to compute the total energy of each configuration but only the difference between the actual configuration and the previous one. When we flip the spins only one by one we are able to know all the $\Delta E$ which are possibles. For the Ising model in two dimensions, we have a total of five possible values of $\Delta E$.
-		
-	    
-		
+            \paragraph{}In this algorithm, we go through the lattice to calculate the energy of the actual configuration of the system. This is a Monte Carlo cycle. The choice of accepting or not a configuration is made by comparing the actual energy of the system with the energy of the previous one. If the energy of the actual configuration is lower than the previous one, we accept the configuration as we try to have the lowest energy at a given temperature.
+            
+            \paragraph{}The strength of this method is that we do not have to compute the total energy of each configuration but only the difference between the actual configuration and the previous one. Then we do not have to compute the exponential $e^{-\beta \Delta E}$ each time we go through the loop but we can pre-calculate its possible values. When we flip the spins only one by one we are able to know all the $\Delta E$ which are possibles. For the Ising model in two dimensions, we have a total of five possible values of $\Delta E$. We take a random spin in the lattice, surrounded by four other spins, which will be flipped. The direction of the four surronding spins determines the energy of the mini-system composed of the five spins. We only need to know how the energy is modified by the flip of the spin chosen to compute $\Delta E$.\\
+            In the following array, we sum up all the different possible values of $\Delta E$ according to the number of spins-up around the chosen spin.
+            
+                \begin{center}
+                    \begin{tabular}{|c|c|c|c|c|}
+                        \hline
+                        Number of surr. & Energy of the  & Flipped & Energy of the & Difference of energy $\Delta E$ \\
+                        spins-up & initial state & configurations & resulting state & between the two states\\
+                        \hline \hline
+                        4 : $\begin{array}{ccc}
+                                  & \uparrow & \\
+                                 \uparrow & \uparrow & \uparrow \\
+                                  & \uparrow & 
+                              \end{array}$ & $E_b=-4J$ & $\begin{array}{ccc}
+                                                             & \uparrow & \\
+                                                             \uparrow & \downarrow & \uparrow \\
+                                                             & \uparrow & 
+                                                          \end{array}$ & $E_t=4J$ & $\Delta E = 8J$ \\
+                        \hline
+                        3 : $\begin{array}{ccc}
+                                  & \uparrow & \\
+                                 \downarrow & \uparrow & \uparrow \\
+                                  & \uparrow & 
+                              \end{array}$ & $E_b=-2J$ & $\begin{array}{ccc}
+                                                             & \uparrow & \\
+                                                             \downarrow & \downarrow & \uparrow \\
+                                                             & \uparrow & 
+                                                          \end{array}$ & $E_t=2J$ & $\Delta E = 4J$ \\
+                        \hline
+                        2 : $\begin{array}{ccc}
+                                  & \downarrow & \\
+                                 \downarrow & \uparrow & \uparrow \\
+                                  & \uparrow & 
+                              \end{array}$ & $E_b=0$ & $\begin{array}{ccc}
+                                                             & \downarrow & \\
+                                                             \downarrow & \downarrow & \uparrow \\
+                                                             & \uparrow & 
+                                                          \end{array}$ & $E_t=0$ & $\Delta E = 0$ \\
+                        \hline
+                        1 : $\begin{array}{ccc}
+                                  & \downarrow & \\
+                                 \downarrow & \uparrow & \uparrow \\
+                                  & \downarrow & 
+                              \end{array}$ & $E_b=2J$ & $\begin{array}{ccc}
+                                                             & \downarrow & \\
+                                                             \downarrow & \downarrow & \uparrow \\
+                                                             & \downarrow & 
+                                                          \end{array}$ & $E_t=-2J$ & $\Delta E = -4J$ \\
+                        \hline
+                        0 : $\begin{array}{ccc}
+                                  & \downarrow & \\
+                                 \downarrow & \uparrow & \downarrow \\
+                                  & \downarrow & 
+                              \end{array}$ & $E_b=4J$ & $\begin{array}{ccc}
+                                                             & \downarrow & \\
+                                                             \downarrow & \downarrow & \downarrow \\
+                                                             & \downarrow & 
+                                                          \end{array}$ & $E_t=-4J$ & $\Delta E = -8J$ \\
+                        \hline
+                    \end{tabular}
+                \captionof{table}{Possible values of $\Delta E$ for a two-dimensional Ising model}
+                \end{center}
 
 
 \chapter{Implementation}
