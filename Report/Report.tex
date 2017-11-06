@@ -27,8 +27,9 @@
 \usepackage{multirow}
 \usepackage{listings}
 \usepackage{wasysym}
-\usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage[ruled]{algorithm2e}
+
 
 %%%%%% COULEURS CODE C++
 \lstdefinestyle{customc}{
@@ -518,31 +519,40 @@
             
         \subsection{The algorithm}
         
-            \begin{algorithmic}[1]
-		       
-                \State \textbf{init} $E_b$ the energy of the initial random configuration.
-		\State \textbf{init} $E_t$ the energy of the configuration obtained by flipping one spin.
-		\State $E_t - E_b \rightarrow \Delta E$
-		\State $E_t \rightarrow E_b$
-		\State \textbf{compute} expectation values for the state with the energy $E_b$
-		    \For{each new configuration}
-		        \State energy of the new configuration $\rightarrow E_t$
-		        \State $E_t - E_b \rightarrow \Delta E$
-		        \If{$\Delta E \leq 0$}
-		            \State $E_t \rightarrow E_b$
-		        \Else
-		            \State $e^{-\beta \Delta E} \rightarrow w$
-		            \State \textbf{pick} a random number $r \in [0,1]$ 
-		            \If{$r \leq w$}
-		                \State The new configuration is accepted, $E_t \rightarrow E_b$
-		            \Else 
-		                \State Keep the old configuration
-		            \EndIf
-		        \EndIf
-		        \State \textbf{update} expectation values 
-		    \EndFor
-		        
-            \end{algorithmic}
+            \begin{center}
+            \begin{algorithm}[H]
+            
+            \SetAlgoLined
+            
+                \KwIn{$E_b$ the energy of the initial random configuration.}
+                \KwIn{$E_t$ the energy of the configuration obtained by flipping one spin.}
+                $E_t - E_b \rightarrow \Delta E$\;
+		$E_t \rightarrow E_b$\;
+		$\textbf{Compute}$ expectation values for the state with the energy $E_b$\;
+		
+                    \For{\textnormal{each new configuration}}
+                    {
+                        energy of the new configuration $\rightarrow E_t$\;
+		        $E_t - E_b \rightarrow \Delta E$\;
+                        \eIf{$\Delta E \leq 0$}
+                        {
+                            $E_t \rightarrow E_b$\;
+                        }{
+                            $e^{-\beta \Delta E} \rightarrow w$\;
+		            $\textbf{pick}$ a random number $r \in [0,1]$\;
+                            \eIf{$r \leq w$}
+                            {
+                                The new configuration is accepted, $E_t \rightarrow E_b$\;
+                            }{
+                                Keep the old configuration.\;
+                            }
+                        }
+                        $\textbf{update}$ expectation values.\;
+                    } 
+                  
+            \caption{Metropolis algorithm}  
+            \end{algorithm}
+            \end{center}
             
             \paragraph{}In this algorithm, we go through the lattice to calculate the energy of the actual configuration of the system. This is a Monte Carlo cycle. The strength of this method is that we do not have to compute the total energy of each configuration but only the difference between the actual configuration and the previous one. When we flip the spins only one by one we are able to know all the $\Delta E$ which are possibles. For the Ising model in two dimensions, we have a total of five possible values of $\Delta E$.
 		
