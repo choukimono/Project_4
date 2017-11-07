@@ -327,7 +327,7 @@
                                                      \end{matrix}$} & $1$ & $-8J$ & $-4$ \\
                             \hline            
                     \end{tabular}
-                \captionof{table}{Energy and magnetization for a $N = 2\times 2$-spin Ising model with periodic boundary conditions.}
+                \captionof{table}{Energy and magnetization for a $N = 2\times 2$ spins Ising model with periodic boundary conditions.}
                 \end{center}
             
             The 16 configurations known, we can calculate the partition function in its analytic form. 
@@ -338,8 +338,8 @@
                 \end{align*}
             %    
                 \begin{align*}
-                    Z &= 2(e^{8J\beta} + e^{-8J\beta} + 6) \tag{4}\\
-                    Z &= 4[\cosh(8J\beta) + 3] \tag{4'}
+                    &\boxed{Z = 2(e^{8J\beta} + e^{-8J\beta} + 6)} \tag{4}\\
+                    &Z = 4[\cosh(8J\beta) + 3] \tag{4'}
                 \end{align*}
                 
             Let's now compute the expectation value of the energy, defined by
@@ -349,22 +349,24 @@
                 \end{equation*}            
             
             From (2), we can write :
-            
+            %
                 \begin{align*}
                     \langle E \rangle &= \frac{1}{Z}\sum\limits_{i=1}^{M} E_i e^{-\beta E_i} \\
-                    \langle E \rangle &= \frac{1}{Z} \left(2 \times (-8J) e^{8J\beta} + 2 \times 8J e^{-8J\beta}\right)
+                    &= \frac{1}{Z} \left(2 \times (-8J) e^{8J\beta} + 2 \times 8J e^{-8J\beta}\right)
                 \end{align*}             
             
-                \begin{align*}
-                    \langle E \rangle &= - \frac{J}{Z}\left( 16 e^{8J\beta} - 16 e^{-8J\beta} \right) \tag{5} \\
-                    \langle E \rangle &= -8J \frac{e^{8J\beta} - e^{-8J\beta}}{e^{8J\beta} + e^{-8J\beta} + 6}
-                \end{align*}
+                \begin{equation*}
+                    \boxed{\langle E \rangle = -\frac{J}{Z}\left(16e^{8J\beta} - 16 e^{-8J\beta}\ \right)} 
+                    \tag{5}
+                \end{equation*}
                 
-            So
-            
-                \begin{align*}
-                    \langle E \rangle &= -8J \frac{\sinh (8J\beta)}{\cosh (8J\beta) + 3}  \tag{5'}
-                \end{align*}
+                \begin{equation*}
+                    \langle E \rangle = -8J \frac{e^{8J\beta} - e^{-8J\beta}}{e^{8J\beta} + e^{-8J\beta} + 6}
+                \end{equation*}
+            %            
+                \begin{equation*}
+                    \langle E \rangle =\ -8J \frac{\sinh (8J\beta)}{\cosh (8J\beta) + 3}  \tag{5'}
+                \end{equation*}
             
             Similarly, we compute the mean value of the magnetic moment (or mean magnetization) in its absolute value $\langle |M| \rangle$ :
             
@@ -376,10 +378,14 @@
                     \langle |M| \rangle = \frac{1}{Z} \left(4 e^{8J\beta} + 4 \times 2 e^{0} + 4 \times 2 e^{0} + 4 e^{8J\beta}\right) 
                 \end{equation*}
                 
-                \begin{align*}
-                    \langle |M| \rangle &= \frac{8e^{8J\beta}+16}{Z} \tag{6} \\
-                    \langle |M| \rangle &= \frac{4e^{8J\beta}+8}{e^{8J\beta}+e^{-8J\beta}+6}
-                \end{align*}
+                \begin{equation*}
+                    \boxed{\langle |M| \rangle =\ \frac{8e^{8J\beta}+16}{Z}} 
+                    \tag{6} 
+                \end{equation*}
+                
+                \begin{equation*}
+                    \langle |M| \rangle = \frac{4e^{8J\beta}+8}{e^{8J\beta}+e^{-8J\beta}+6}
+                \end{equation*}
             %
             which match with the fact that we have taken the external magnetic field $B=0$.
             
@@ -398,14 +404,18 @@
                     &= \frac{1}{Z}\left(2 \times (-8J)^2 e^{8J\beta} + 2 \times (8J)^2 e^{-8J\beta} \right)
                 \end{align*}
                 
-                \begin{align*}
-                    \langle E^2 \rangle &= \frac{J^2}{Z}\left(128e^{8J\beta} + 128e^{-8J\beta}\right) \tag{7} \\
-                    \langle E^2 \rangle &= 64J^2 \frac{e^{8J\beta} + e^{-8J\beta}}{e^{8J\beta} + e^{-8J\beta} + 6}
-                \end{align*}
+                \begin{equation*}
+                    \boxed{\langle E^2 \rangle = \frac{J^2}{Z}\left(128e^{8J\beta} + 128e^{-8J\beta}\right)} 
+                    \tag{7}
+                \end{equation*}
                 
-                \begin{align*}
-                    \langle E^2 \rangle &= 64J^2 \frac{\cosh(8J\beta)}{\cosh(8J\beta) +3} \tag{7'}
-                \end{align*}
+                \begin{equation*}
+                    \langle E^2 \rangle = 64J^2 \frac{e^{8J\beta} + e^{-8J\beta}}{e^{8J\beta} + e^{-8J\beta} + 6}
+                \end{equation*}
+                
+                \begin{equation*}
+                    \langle E^2 \rangle = 64J^2 \frac{\cosh(8J\beta)}{\cosh(8J\beta) +3} \tag{7'}
+                \end{equation*}
             
             Then, with (5), we have
             
@@ -414,7 +424,7 @@
                 \end{equation*}
                 
                 \begin{equation*}
-                    C_V = \frac{256J^2}{ZkT^2}\left[\cosh(8J\beta) - \frac{4}{Z}\sinh^2(8J\beta)\right]
+                    \boxed{C_V = \frac{256J^2}{ZkT^2}\left[\cosh(8J\beta) - \frac{4}{Z}\sinh^2(8J\beta)\right]}
                     \tag{8}
                 \end{equation*}
                 
@@ -432,15 +442,15 @@
                 \end{align*}
                 
                 \begin{align*}
-                    \langle |M|^2 \rangle &= \frac{1}{Z}\left( 32e^{8J\beta} + 32 \right) \tag{9}\\
-                    \langle |M|^2 \rangle &= 16 \frac{e^{8J\beta}+1}{e^{8J\beta} + e^{-8J\beta} + 6}
+                    &\boxed{\langle |M|^2 \rangle = \frac{1}{Z}\left( 32e^{8J\beta} + 32 \right)} \tag{9}\\
+                    &\langle |M|^2 \rangle = 16 \frac{e^{8J\beta}+1}{e^{8J\beta} + e^{-8J\beta} + 6}
                 \end{align*}
                 
             Using (6), we can write
             
                 \begin{align*}
-                    \chi &= \frac{1}{ZkT}\left[\left(32e^{8J\beta}+32\right)-\left(\frac{(8e^{8J\beta}+16)^2}{Z}\right)\right] \tag{10}\\
-                    \chi &= \frac{16}{kT}\left[\frac{3e^{8J\beta}+e^{-8J\beta}+3}{(e^{8J\beta}+e^{-8J\beta}+6)^2}\right] \\
+                    &\boxed{\chi = \frac{1}{ZkT}\left[\left(32e^{8J\beta}+32\right)-\left(\frac{(8e^{8J\beta}+16)^2}{Z}\right)\right]} \tag{10}\\
+                    &\chi = \frac{16}{kT}\left[\frac{3e^{8J\beta}+e^{-8J\beta}+3}{(e^{8J\beta}+e^{-8J\beta}+6)^2}\right] \\
                 \end{align*}            
             
 
