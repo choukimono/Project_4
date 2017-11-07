@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.14)  6 NOV 2017 18:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.14)  7 NOV 2017 14:09
 entering extended mode
 **./Report.tex
 (Report.tex
@@ -2239,32 +2239,30 @@ oc)
 
 ]
 Chapter 1.
-
-Underfull \hbox (badness 10000) in paragraph at lines 216--219
-
- []
-
 [4
 
 ]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 329.
+(caption)                particular \caption on input line 328.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (28.65698pt too wide) in paragraph at lines 337--337
+Overfull \hbox (28.65698pt too wide) in paragraph at lines 336--336
 [] 
  []
 
-[5] [6] [7] [8] [9]
+[5] [6] [7] [8]
+Underfull \vbox (badness 1783) has occurred while \output is active []
+
+ [9]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 617.
+(caption)                particular \caption on input line 616.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (18.86325pt too wide) in paragraph at lines 561--617
+Overfull \hbox (18.86325pt too wide) in paragraph at lines 560--616
  [] 
  []
 
@@ -2280,56 +2278,56 @@ Chapter 2.
 Chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 637.
+(hyperref)                removing `math shift' on input line 636.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 637.
+(hyperref)                removing `\times' on input line 636.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 637.
+(hyperref)                removing `math shift' on input line 636.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 641.
+(hyperref)                removing `math shift' on input line 640.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 641.
+(hyperref)                removing `\times' on input line 640.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 641.
+(hyperref)                removing `math shift' on input line 640.
 
 [13
 
 ] [14
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 665.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 666.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 665.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 668.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 666.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 669.
  [15
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 668.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 669.
 
 (C:\Users\tetee\Desktop\UiO\FYS3150\Github\Project_4\Report\.texiteasy\Report.a
 ux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 668.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 668.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 669.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 669.
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 3BF606CAFB97979A4ED0B534B507E853;1614.
+(rerunfilecheck)             Checksum: A4E73F21580223131CEC370A1ED716BD;1614.
  ) 
 Here is how much of TeX's memory you used:
- 23107 strings out of 493328
- 383691 string characters out of 3139124
+ 23108 strings out of 493328
+ 383702 string characters out of 3139124
  532149 words of memory out of 3000000
  26273 multiletter control sequences out of 15000+200000
  598348 words of font info for 67 fonts, out of 3000000 for 9000
@@ -2350,9 +2348,9 @@ Files/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm
 /lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Report.pdf (16 pages, 284987 bytes).
+Output written on Report.pdf (16 pages, 285351 bytes).
 PDF statistics:
- 295 PDF objects out of 1000 (max. 8388607)
- 62 named destinations out of 1000 (max. 500000)
+ 296 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
  193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
