@@ -188,7 +188,7 @@
 	
 \begin{abstract}
     
-    \paragraph{}In this project, we want to implement the Ising model, in the case of a two-dimensional squared lattice, with periodic boundary conditions. In this lattice, we have $L\times L$ particles characterized by their spin (up or down). The starting point of the program will be a random lattice or a lattice with all the spins-up. The Metropolis algorithm will be run in a lattice $20\times20$ and then bigger. We will study the properties of the system : the mean energy $E$, the mean magnetization $|M|$, the specific heat and the susceptibility $\chi$ as function of the temperature. The purpose is then to study the phase transitions. We will again study these properties near the critical temperature (Curie point).
+    \paragraph{}In this project, we want to implement the Ising model, in the case of a two-dimensional squared lattice, with periodic boundary conditions, by using the object-oriented programming. In this lattice, we have $L\times L$ particles characterized by their spin (up or down). The starting point of the program will be a random lattice or a lattice with all the spins-up. The Metropolis algorithm will be run in a lattice $20\times20$ and then bigger. We will study the properties of the system : the mean energy $E$, the mean magnetization $|M|$, the specific heat and the susceptibility $\chi$ as function of the temperature. The purpose is then to study the phase transitions. We will again study these properties near the critical temperature (Curie point).
     
     \paragraph{}Quelques résultats...
     
@@ -513,7 +513,14 @@
             %
             for $T$ near $T_C$.
             
-            \paragraph{}To find the critical temperature of our case, we will plot the values of the physical properties we study from the beginning (namely the expectation values for the energy $E$ and the magnetic moment $|M|$, the specific heat $C_V$ and the susceptibility $\xi$ as function of the temperature $T$. The discontinuity in the graph would tell us an approximation of the critical temperature. 
+            \paragraph{}To find the critical temperature of our case, we will plot the values of the physical properties we study from the beginning (namely the expectation values for the energy $E$ and the magnetic moment $|M|$, the specific heat $C_V$ and the susceptibility $\xi$ as function of the temperature $T$. The discontinuity in the graph would tell us an approximation of the critical temperature. We have a theorical value of the critical temperature which is 
+                
+                \begin{equation*}
+                    \frac{kT_C}{J} = \frac{2}{\textnormal{ln}(1+\sqrt{2})} \approx 2.269
+                    \tag{11}
+                \end{equation*}
+            %
+            according to the work of Lars Onsager exposed in the Physical Review 65, 116 in 1944.
     
     
     \section{The Metropolis algorithm}
@@ -642,7 +649,11 @@
 
 \chapter{Implementation}
 
+    \paragraph{}For the programs of this project, we will use a object-oriented programing instead of standard programing with a lot of functions and variables. The program will then be closer to how we conceptualize the model.
+
     \section{The Ising model}
+    
+        
     
     
     
@@ -788,7 +799,8 @@
 \chapter*{Bibliography}
     
     \begin{itemize}
-        \item
+        \item Lars Onsager Phys. Rev. 65, 117 (1944)
+        \item 
     \end{itemize}
     
 
