@@ -460,7 +460,9 @@
     
         \subsection{The critical temperature}
         
-            \paragraph{}To study the phase transitions, we consider a critical temperature. The Ising model with our conditions (in two dimensions and with an null-external magnetic field $B=0$) undergoes a phase transition of second-order. That means that the new states grows continuously from the previous one and with $T \rightarrow T_C$, these two states are quantatively the same. Near this temperature, a power-law applies to many physical quantities : one quantity varies as the power of another. In the Ising model, we can express the mean magnetization as 
+            \paragraph{}To study the phase transitions, we consider a critical temperature. The Ising model with our conditions (in two dimensions and with an null-external magnetic field $B=0$) undergoes a phase transition of second-order, called like this because of the fact that there is a discontinuity in the second derivative of the free energy. That means that the new states grows continuously from the previous one and when $T \rightarrow T_C$, these two states are quantatively the same. 
+            
+            \paragraph{}Near this temperature, a power-law applies to many physical quantities : one quantity varies as the power of another. In the Ising model, we can express the mean magnetization as 
                 
                 \begin{equation*}
                     \langle M(T)\rangle \sim (T-T_C)^{\beta}
@@ -510,6 +512,8 @@
                 \end{equation*}
             %
             for $T$ near $T_C$.
+            
+            \paragraph{}To find the critical temperature of our case, we will plot the values of the physical properties we study from the beginning (namely the expectation values for the energy $E$ and the magnetic moment $|M|$, the specific heat $C_V$ and the susceptibility $\xi$ as function of the temperature $T$. The discontinuity in the graph would tell us an approximation of the critical temperature. 
     
     
     \section{The Metropolis algorithm}
@@ -517,7 +521,8 @@
         \subsection{Introduction to the algorithm}
         
             \paragraph{}The Metropolis algorithm is a Markov Chain Monte Carlo method (MCMC).\\
-            A Markov Chain is a Markov process, which is a stochastic process that satisfies the Markov property. This property says that to know the next state, we only need the current state. There is no need to remember the past ones. We obtain a sequence of random samples from a probability distribution, here the Boltzmann distribution.\\
+            A Markov Chain is a Markov process, which is a stochastic process that satisfies the Markov property. This property says that to know the next state, we only need the current state. There is no need to remember the past ones. We obtain a sequence of random samples from a probability distribution, here the Boltzmann distribution.
+            
             \paragraph{}Every Monte Carlo cycle is based on a Markov process to get a new random state. The point is to run it enough time to reach the most likely state of the system, starting with a random configuration. To reach this most likely state, and so an equilibrium distribution, we need either to accept or reject the new random state. 
             
             \paragraph{}Our Monte Carlo sampling function will be the probability of finding the system in the state $i$ given in (2) :
