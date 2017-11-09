@@ -456,15 +456,17 @@
 
     \section{Phase transition}
     
+        \paragraph{}A phase transition is a transformation of a system due to a variation of an external parameter (such as the temperature). It exists a critical point where the transition takes place. 
+    
         \subsection{The critical temperature}
         
-            \paragraph{}To study the phase transitions, we consider a critical temperature. Near this temperature, a power-law applies to many physical quantities : one quantity varies as the power of another. In the Ising model, we can express the mean magnetization as 
+            \paragraph{}To study the phase transitions, we consider a critical temperature. The Ising model with our conditions (in two dimensions and with an null-external magnetic field $B=0$) undergoes a phase transition of second-order. That means that the new states grows continuously from the previous one and with $T \rightarrow T_C$, these two states are quantatively the same. Near this temperature, a power-law applies to many physical quantities : one quantity varies as the power of another. In the Ising model, we can express the mean magnetization as 
                 
                 \begin{equation*}
                     \langle M(T)\rangle \sim (T-T_C)^{\beta}
                 \end{equation*}
             %
-            with $\beta = \frac{1}{8}$ one of the Ising critical exponents (in two dimensions).\\
+            with $\displaystyle \beta = \frac{1}{8}$ one of the Ising critical exponents (in two dimensions).\\
             We have similar expression for the heat capacity and the susceptibility : 
             
                 \begin{equation*}
@@ -475,7 +477,7 @@
                     \chi(T) \sim |T_C - T |^{-\gamma}
                 \end{equation*}
             %
-            with $\alpha = 0$ and $\gamma=\frac{7}{4}$ two other critical exponents.\\
+            with $\displaystyle \alpha = 0$ and $\displaystyle \gamma=\frac{7}{4}$ two other critical exponents.\\
             We also defined the correlation length which is a quantity which represents how two spins are correlated. When the temperature $T$ gets closer to $T_C$, the correlation length between two spins increases. This quantity is given by 
             
                 \begin{equation*}
@@ -514,8 +516,9 @@
         
         \subsection{Introduction to the algorithm}
         
-            \paragraph{}The Metropolis algorithm is a Markov Chain Monte Carlo method (MCMC). We obtain a sequence of random samples from a probability distribution, here the Boltzmann distribution.\\
-            Every Monte Carlo cycle is based on a Markov process to get a new random state. A Markov process is a random walk where each move has a given probability and is independent of previous moves or states of the system. The point is to run it enough time to reach the most likely state of the system, starting with a random configuration. To reach this most likely state, and so an equilibrium distribution, we need either to accept or reject the new random state. 
+            \paragraph{}The Metropolis algorithm is a Markov Chain Monte Carlo method (MCMC).\\
+            A Markov Chain is a Markov process, which is a stochastic process that satisfies the Markov property. This property says that to know the next state, we only need the current state. There is no need to remember the past ones. We obtain a sequence of random samples from a probability distribution, here the Boltzmann distribution.\\
+            \paragraph{}Every Monte Carlo cycle is based on a Markov process to get a new random state. The point is to run it enough time to reach the most likely state of the system, starting with a random configuration. To reach this most likely state, and so an equilibrium distribution, we need either to accept or reject the new random state. 
             
             \paragraph{}Our Monte Carlo sampling function will be the probability of finding the system in the state $i$ given in (2) :
                     
