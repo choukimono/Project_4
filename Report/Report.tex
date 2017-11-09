@@ -552,26 +552,26 @@
                 \KwIn{$E_t$ the energy of the configuration obtained by flipping one spin.}
                 $E_t - E_b \rightarrow \Delta E$\;
 		$E_t \rightarrow E_b$\;
-		$\textbf{Compute}$ expectation values for the state with the energy $E_b$\;
+		$\textbf{init}$ expectation values for the state with the energy $E_b$\;
 		
                     \For{\textnormal{each new configuration}}
                     {
-                        energy of the new configuration $\rightarrow E_t$\;
-		        $E_t - E_b \rightarrow \Delta E$\;
+                        energy of the new configuration $\rightarrow E_t$\\
+		        $E_t - E_b \rightarrow \Delta E$\\
                         \eIf{$\Delta E \leq 0$}
                         {
-                            $E_t \rightarrow E_b$\;
+                            $E_t \rightarrow E_b$\\
                         }{
-                            $e^{-\beta \Delta E} \rightarrow w$\;
-		            $\textbf{pick}$ a random number $r \in [0,1]$\;
-                            \eIf{$r \leq w$}
+		            $\textbf{pick}$ a random number $r \in [0,1]$\\
+                            \eIf{$r \leq e^{-\beta \Delta E}$}
                             {
-                                The new configuration is accepted, $E_t \rightarrow E_b$\;
+                                accept the new configuration\\
+                                $E_t \rightarrow E_b$\\
                             }{
-                                Keep the old configuration.\;
+                                keep the old configuration\\
                             }
                         }
-                        $\textbf{update}$ expectation values.\;
+                        $\textbf{update}$ expectation values\\
                     } 
                   
             \caption{Monte Carlo method using the Metropolis algorithm}  
