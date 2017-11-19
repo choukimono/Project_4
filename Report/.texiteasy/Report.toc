@@ -37,12 +37,13 @@
 \contentsline {section}{\numberline {3.1}Two-dimensional squared lattice}{15}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}$2\times 2$ case}{15}{subsection.3.1.1}
 \contentsline {paragraph}{}{15}{section*.21}
+\contentsline {paragraph}{}{15}{section*.22}
 \contentsline {subsection}{\numberline {3.1.2}$20\times 20$ case}{15}{subsection.3.1.2}
-\contentsline {subsubsection}{The most likely state}{15}{section*.22}
-\contentsline {paragraph}{}{15}{section*.23}
-\contentsline {subsubsection}{The probability distribution of a given energy}{15}{section*.24}
+\contentsline {subsubsection}{The most likely state}{15}{section*.23}
+\contentsline {paragraph}{}{15}{section*.24}
+\contentsline {subsubsection}{The probability distribution of a given energy}{15}{section*.25}
 \contentsline {section}{\numberline {3.2}Phase transitions}{15}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}The Ising model near the critical temperature}{15}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}The critical temperature}{15}{subsection.3.2.2}
-\contentsline {chapter}{Conclusion}{16}{chapter*.25}
-\contentsline {paragraph}{}{16}{section*.26}
+\contentsline {chapter}{Conclusion}{16}{chapter*.26}
+\contentsline {paragraph}{}{16}{section*.27}

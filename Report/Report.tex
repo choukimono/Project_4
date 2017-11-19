@@ -449,8 +449,8 @@
             Using (6), we can write
             
                 \begin{align*}
-                    &\boxed{\chi = \frac{1}{ZkT}\left[\left(32e^{8J\beta}+32\right)-\left(\frac{(8e^{8J\beta}+16)^2}{Z}\right)\right]} \tag{10}\\
-                    &\chi = \frac{16}{kT}\left[\frac{3e^{8J\beta}+e^{-8J\beta}+3}{(e^{8J\beta}+e^{-8J\beta}+6)^2}\right] \\
+                    &\boxed{\chi = \frac{1}{ZkT}\left[\left(32e^{8J\beta}+32\right)-\frac{1}{Z}\left(8e^{8J\beta}+16\right)^2\right]} \tag{10}\\
+                    &\chi = \frac{16}{kT}\left[\frac{3e^{8J\beta}+e^{-8J\beta}+3}{(e^{8J\beta}+e^{-8J\beta}+6)^2}\right]
                 \end{align*}            
             
 
@@ -816,6 +816,17 @@
         \subsection{$2\times2$ case}
         
             \paragraph{}This very simple case allows us to test the algorithm. We just have to compare the numerical results with the theorical ones.
+            
+            \paragraph{}Using the equations (5), (6), (8) and (10), we compute respectively the mean energy, the mean absolute magnetization, the specific heat and the susceptibility. We take $T=1.0$.
+            Then,
+                
+                \begin{align*}
+                    \langle E \rangle &= -7.98393 \tag{12}\\
+                    \langle |M| \rangle &= 3.99464 \tag{13}\\
+                    C_V &= 0.128315 \tag{14}\\
+                    \chi &= 0.0160394 \tag{15}\\
+                \end{align*}
+            
             
         \subsection{$20\times20$ case}
         
