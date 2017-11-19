@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.14)  10 NOV 2017 13:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.14)  19 NOV 2017 11:37
 entering extended mode
 **./Report.tex
 (Report.tex
@@ -2319,60 +2319,64 @@ Underfull \hbox (badness 7981) in paragraph at lines 757--757
 lmr/m/n/10.95 100$
  []
 
-[13]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+[14]
 Chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 773.
+(hyperref)                removing `math shift' on input line 808.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 773.
+(hyperref)                removing `\times' on input line 808.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 773.
+(hyperref)                removing `math shift' on input line 808.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 777.
+(hyperref)                removing `math shift' on input line 812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 777.
+(hyperref)                removing `\times' on input line 812.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 777.
+(hyperref)                removing `math shift' on input line 812.
 
-[14
+[15
 
-] [15
+] [16
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 802.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 837.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 802.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 807.
- [16
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 837.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 842.
+ [17
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 807.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 842.
 
 (C:\Users\tetee\Desktop\UiO\FYS3150\Github\Project_4\Report\.texiteasy\Report.a
 ux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 807.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 807.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 842.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 842.
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: F392D63228BBEFE285C491CB2E47B690;1559.
+(rerunfilecheck)             Checksum: 106E5A6E64813C75A0CC611F98735574;1595.
  ) 
 Here is how much of TeX's memory you used:
- 23124 strings out of 493328
- 383858 string characters out of 3139124
+ 23127 strings out of 493328
+ 383885 string characters out of 3139124
  532149 words of memory out of 3000000
  26277 multiletter control sequences out of 15000+200000
  599309 words of font info for 70 fonts, out of 3000000 for 9000
@@ -2394,9 +2398,9 @@ nts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm
 /lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Report.pdf (17 pages, 316947 bytes).
+Output written on Report.pdf (18 pages, 319177 bytes).
 PDF statistics:
- 312 PDF objects out of 1000 (max. 8388607)
- 73 named destinations out of 1000 (max. 500000)
+ 318 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 500000)
  185 words of extra memory for PDF output out of 10000 (max. 10000000)
 

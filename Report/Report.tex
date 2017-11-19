@@ -651,7 +651,7 @@
 
     \paragraph{}For the programs of this project, we will use a object-oriented programing instead of standard programing with a lot of functions and variables. The program will then be closer to how we conceptualize the model.
 
-    \section{The Ising model}
+    \section{Calculations of the physical properties of a system}
     
         
     
@@ -761,7 +761,42 @@
         
         
     \section{The Metropolis algorithm}
-    
+        
+        \begin{center}
+            \begin{algorithm}[H]
+            
+            \SetAlgoLined
+            
+                \KwIn{a random configuration}
+                
+                $E_t - E_b \rightarrow \Delta E$\;
+		$E_t \rightarrow E_b$\;
+		$\textbf{init}$ expectation values for the state with the energy $E_b$\;
+		
+                    \For{\textnormal{each new configuration}}
+                    {
+                        energy of the new configuration $\rightarrow E_t$\\
+		        $E_t - E_b \rightarrow \Delta E$\\
+                        \eIf{$\Delta E \leq 0$}
+                        {
+                            $E_t \rightarrow E_b$\\
+                        }{
+		            $\textbf{pick}$ a random number $r \in [0,1]$\\
+                            \eIf{$r \leq e^{-\beta \Delta E}$}
+                            {
+                                accept the new configuration\\
+                                $E_t \rightarrow E_b$\\
+                            }{
+                                keep the old configuration\\
+                            }
+                        }
+                        $\textbf{update}$ expectation values\\
+                    } 
+                  
+            \caption{Monte Carlo method using the Metropolis algorithm}  
+            \end{algorithm}
+        \end{center}        
+        
     \section{Critical temperature}
 
 
