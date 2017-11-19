@@ -761,18 +761,107 @@
     
         \subsection{$2\times2$ case}
         
-            \paragraph{}This very simple case allows us to test the algorithm. We just have to compare the numerical results with the theoritical ones.
-            
-            \paragraph{}Using the equations (5), (6), (8) and (10), we compute respectively the mean energy, the mean absolute magnetization, the specific heat and the susceptibility. We take $T=1.0$.
+            \paragraph{}This very simple case allows us to test the algorithm. We just have to compare the numerical results with the theoritical ones.\\
+            Using the equations (5), (6), (8) and (10), we compute respectively the mean energy, the mean absolute magnetization, the specific heat and the susceptibility. We take $T=1.0$.
             Then,
-                
+            %    
                 \begin{align*}
-                    \langle E \rangle &= -7.98393 \tag{12}\\
-                    \langle |M| \rangle &= 3.99464 \tag{13}\\
-                    C_V &= 0.128315 \tag{14}\\
-                    \chi &= 0.0160394 \tag{15}\\
+                    \langle E \rangle &= -7.98393  
+                    && \langle |M| \rangle = 3.99464 \\
+                    C_V &= 0.128315
+                    &&\chi = 0.0160394\\
                 \end{align*}
+            %
+            Let's see what we get with the simulations. We run the program four times. 
+            %    
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=8cm,height=6.5cm]{Results/B/T=1/Plots/energies_positive.png}
+                        \end{minipage}
+                        \hspace{3mm}
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7cm,height=6.5cm]{Results/B/T=1/Plots/energies_random.png}
+                        \end{minipage}
+                    }
+                    \caption{The mean energy as function of the number of Monte Carlo cycles, starting with an ordered lattice (all spins-up) (left) or a random lattice (right) at $T=1$}
+                \end{figure}
+                \end{center}
+                
+            \paragraph{}The results starting with a random lattice are not exploitables as each simulation gives a different value. This is because of the size of the lattice, too small. When we begin with an ordered lattive however, the four simulations converges more or less to the same value which is nearly $-7.983$. This is totally coherent with our theorical value. \\
+            For the following plots, we will only take an ordered lattice to begin.
+            %
+                \begin{center}
+                \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=10cm,height=6.5cm]{Results/B/T=1/Plots/Moments_positive}
+                    \caption{The mean magnetic moment as function of the number of Monte Carlo cycles, starting with all spins-up over four simulations at $T=1$}
+                \end{figure}
+                \end{center}
+            %
+            We see here that this is coherent with the theorical value. The four simulations give pretty much the same value which is $\langle |M| \rangle = 3.995$ and is very close to the theorical one.
+            %
+                \begin{center}
+                \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=10cm,height=6cm]{Results/B/T=1/Plots/Cv}
+                    \caption{The specific heat as function of the number of Monte Carlo cycles at $T=1$}
+                \end{figure}
+                \end{center}
+                
+            \paragraph{}We have a result here which is not at all what we expected. There is no point after which the specific heat stabilizes. 
             
+                \begin{center}
+                \begin{figure}[h!]
+                    \centering
+                    \includegraphics[width=10cm,height=8cm]{Results/B/T=1/Plots/Khi}
+                    \caption{The susceptibility as function of the number of Monte Carlo cycles at $T=1$}
+                \end{figure}
+                \end{center}
+                
+            \paragraph{}Except for the mean energy and the mean magnetic moment, the results we have for the case of a $2 \times 2$ lattice at $T=1$ are obviously outliers. This may be because of the low temperature or because of the size of the lattice. We should take at least 200000 Monte Carlo cycles to reach an equilibrium situation.
+            
+                \begin{center}
+                \begin{figure}[h!]
+                    \centering
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7cm,height=5.5cm]{Results/B/Fonction_de_T/energy.png}
+                        \end{minipage}
+                        \hspace{3mm}
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7cm,height=5.5cm]{Results/B/Fonction_de_T/moment.png}
+                        \end{minipage}
+                    }
+                    \caption{The mean energy and the mean magnetic moment as function of the temperature for $2 \times 10^6$ Monte Carlo cycles}
+                \end{figure}
+                \end{center}
+                
+                \begin{center}
+                \begin{figure}[h!]
+                    \centering
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7cm,height=5.5cm]{Results/B/Fonction_de_T/cv.png}
+                        \end{minipage}
+                        \hspace{3mm}
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7cm,height=5.5cm]{Results/B/Fonction_de_T/khi.png}
+                        \end{minipage}
+                    }
+                    \caption{The specific heat and the susceptibility as function of the temperature for $2 \times 10^6$ Monte Carlo cycles}
+                \end{figure}
+                \end{center}
+                
+            \paragraph{}These results are not what I expected. The mean magnetic moment should fall at a given temperature (which is the critical temperature), the mean energy should not fall like this with the temperature.
+                
             
         \subsection{$20\times20$ case}
         
@@ -780,6 +869,7 @@
             
                 \paragraph{}In this section we will study the time, which is here defined as the number of Monte Carlo cycles. At two different temperatures, we will run the program in order to know after how many cycles we reach an equilibrium situation. This equilibrium situation is the point at which we can begin to compute the expectation values. We will run a simulation at the temperature $T=1$ and $T=2.4$ starting with either a random lattice or an ordered one (taking all spins-up).
             
+                \newpage
                 \begin{center}
                 \begin{figure}[h!]
                     \hbox{
@@ -815,6 +905,8 @@
                 \end{figure}
                 \end{center}
                 
+                \paragraph{}We observe that the mean energy converges quickly to the most likely state. Approximatively, we need 500000 Monte Carlo cycles to reach an equilibrium state in the case of a low temperature ($T=1$) and pretty much the same number of cycles needed for the temperature $T=2.4$. We also observe that the mean energy is much lower for a low temperature : $\langle E \rangle_1 = 799$ against $\langle E \rangle_{2.4}=500$ which is coherent with the fact that the thermal motion increases with the temperature.\\
+                Moreover, starting with an ordered lattice gives clearer results than a starting random lattice where it takes nearly $5 \times 10^6$ Monte Carlo cycles to be really stable. 
                 
                 \begin{center}
                 \begin{figure}[h!]
@@ -850,22 +942,232 @@
                     \caption{The expectation value of the magnetic moment as function of the number of Monte Carlo cycles, in the case of a starting random lattice, at $T=1$ (left) and $T=2.4$ (right)}
                 \end{figure}
                 \end{center}
-                
-            \paragraph{}
-                
-                
-                
-                 
-                   
+            %   
+            \paragraph{}The expectation value of the magnetic moment is quite stable after 250000 Monte Carlo cycles for a starting ordered lattice at $T=1$. We can compare the results with C. N. Yang's exact result published in the Physical Review 85, 808-816 in 1952, “The spontaneous magnetization of a two-dimensional Ising model”. The magnetic moment per spin is expressed as 
             
-                \paragraph{}Two cases : ordered and random
+                \begin{equation*}
+                    m = \left\{ \begin{matrix}
+                              \left( 1-[\textnormal{sinh}(2\beta J)]^{-4} \right)^{\frac{1}{8}} & & & (T < T_C) \\
+                              0 & & & (T>T_C)
+                              \end{matrix}
+                        \right.
+                \end{equation*}
+                
+            So, for a $20 \times 20$ lattice, that is 400 spins, and $T=1<T_C$ we should have
+            %   
+                \begin{align*}
+                    M_{400}&=400 \times \left(1-[\textnormal{sinh}\ 2]^{-4}\right)^{\frac{1}{8}}\\
+                    M_{400}&=399.710
+                \end{align*}
+            %
+            For $T=1$ the result we get are coherent with the value we should have. At $T=2.4$ the mean magnetization tends toward zero which means that $T=2.4>T_C$. \\
+            For a random configuration as a starting configuration, the number of Monte Carlo cycles needed to be more or less stable is $1\times 10^7$. So in order to start computations of the expectation values when an equilibrium situation has been reach, we have to wait $1 \times 10^7$ Monte Carlo cycles.
             
+            \paragraph{}Let's see how the number of accepted configurations evolves as function of the number of Monte Carlo cycles. 
+            
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=7cm]{Results/C_et_D/T=1/Positive/configs.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=7cm]{Results/C_et_D/T=1/Random/configs.png}
+                        \end{minipage}
+                    }
+                    \caption{The number of accepted configurations as function of the number of Monte Carlo cycle, starting with a ordered lattice (left) or with a random one (right) at $T=1$}
+                \end{figure}
+                \end{center}
+                
+                \newpage
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=7cm]{Results/C_et_D/T=2,4/Positive/configs.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=7cm]{Results/C_et_D/T=2,4/Random/configs.png}
+                        \end{minipage}
+                    }
+                    \caption{The number of accepted configurations as function of the number of Monte Carlo cycle, starting with a ordered lattice (left) or with a random one (right) at $T=2.4$}
+                \end{figure}
+                \end{center}
+                
+            \paragraph{}The number of accepted configurations increase lineraly with the number of Monte Carlo cycles except for a starting random configuration at the temperature $T=1$. It seems coherent as the probability of having the needed conditions to the acceptation increases with the number of Monte Carlo cycles.          
+        
             \subsubsection{The probability distribution of a given energy}
-    
+            
+            \paragraph{}In this section, we will looking for how many times a given energy appears in our computations. With these data, we would be able to analyze the probability distribution. 
+            
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/C_et_D/T=1/Positive/energies_proba.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/C_et_D/T=2,4/Positive/energies_proba.png}
+                        \end{minipage}
+                    }
+                    \caption{The probability distribution $P(E)$}
+                \end{figure} 
+                \end{center}          
+            
+            \paragraph{}At low temperature, we have very few possible values for the energy, the curve is centered near the expectation value of the energy. At temperature $T=2.4$, the Gaussian distribution is way more extended. We have more possible values. The curve is centered at the expectation value we have determined above. \\
+            The variance in energy for $T=1$ are really big whereas we expected low variances because the curve is not extended. The variance at $T=2.4$ are smaller but still very big.
+            
+\newpage
     \section{Phase transitions}
     
         \subsection{The Ising model near the critical temperature}
         
+            \paragraph{}We will focus on a smaller interval around a supposed critical temperature : $T \in [2.0,2.3]$. We take different size for the lattice : $L=40$, $L=60$, $L=80$ and $L=100$.
+            
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=7cm]{Results/E/L=40/energy.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=7cm]{Results/E/L=60/energy.png}
+                        \end{minipage}
+                    }
+                \end{figure} 
+                \end{center}
+                
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=80/energy.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=100/energy.png}
+                        \end{minipage}
+                    }
+                    \caption{The mean energy as function of the temperature near the critical temperature for $L=40, 60, 80, 100$}
+                \end{figure} 
+                \end{center}
+                
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=40/moment.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=60/moment.png}
+                        \end{minipage}
+                    }
+                \end{figure} 
+                \end{center}
+                
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=80/moment.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=100/moment.png}
+                        \end{minipage}
+                    }
+                    \caption{The mean magnetic moment as function of the temperature near the critical temperature for $L=40, 60, 80, 100$}
+                \end{figure} 
+                \end{center}
+                
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=40/cv.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=60/cv.png}
+                        \end{minipage}
+                    }
+                \end{figure} 
+                \end{center}
+                
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=80/cv.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=100/cv.png}
+                        \end{minipage}
+                    }
+                    \caption{The specific heat as function of the temperature near the critical temperature for $L=40, 60, 80, 100$}
+                \end{figure} 
+                \end{center}
+                
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=40/khi.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=60/khi.png}
+                        \end{minipage}
+                    }
+                \end{figure} 
+                \end{center}
+                
+                \begin{center}
+                \begin{figure}[h!]
+                    \hbox{
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=80/khi.png}
+                        \end{minipage}
+                        \hfill
+                        \begin{minipage}[c]{.46\linewidth}
+                            \centering
+                            \includegraphics[width=7.5cm,height=6cm]{Results/E/L=100/khi.png}
+                        \end{minipage}
+                    }
+                    \caption{The susceptibility as function of the temperature near the critical temperature for $L=40, 60, 80, 100$}
+                \end{figure} 
+                \end{center}
+                
+            \paragraph{}We, again, do not have what we expected. We should see the phase transition on these plots. For example, the susceptibility should diverge at $T_C$. We are not able to find the critical temperature with these simulations.
+            
+        \newpage
         \subsection{The critical temperature}
 
 
@@ -880,7 +1182,8 @@
     
     \begin{itemize}
         \item Lars Onsager Phys. Rev. 65, 117 (1944)
-        \item 
+        \item C. N. Yang, “The spontaneous magnetization of a two-dimensi
+onal Ising model,” Phys.  Rev.85, 808–816 (1952)
     \end{itemize}
     
 
