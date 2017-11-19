@@ -191,7 +191,7 @@
     \paragraph{}In this project, we want to implement an Ising model, by using the object-oriented programming. The Metropolis algorithm will be run in a lattice $20\times20$ and then bigger. We will study the properties of the system : the mean energy $E$, the mean magnetization $|M|$, the specific heat and the susceptibility $\chi$ as function of the temperature. \\
     The purpose is then to study the phase transitions. We will again study these properties near the critical temperature (Curie point) in order to detect the phase transition. To improve the performance of the program, we will use MPI to parallelize programs. 
     
-    \paragraph{}Unfortunately, I was not able to have goos results for everything. But, from those I have, the equilibrium situation is reached after about $1\times 10^7$ Monte Carlo cycles, which means that we need at least this number of cycles in order to compute the expectation values. We can also see that the number of accepted configurations is directly linked with the number of Monte Carlo cycles, and with the temperature. Moreover, for larger temperature, we have more possible values of the energy than for smaller temperature. I was not able to see the phase transitions with my simulations.
+    \paragraph{}Unfortunately, I was not able to have good results for everything. But, from those I have, the equilibrium situation is reached after about $1\times 10^7$ Monte Carlo cycles, which means that we need at least this number of cycles in order to compute the expectation values. We can also see that the number of accepted configurations is directly linked with the number of Monte Carlo cycles, and with the temperature. Moreover, for larger temperature, we have more possible values of the energy than for smaller temperature. I was not able to see the phase transitions with my simulations.
     
 \end{abstract}
 
@@ -202,7 +202,8 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-    \paragraph{}This project is all about implementing the Ising model to study the phase transitions. We will be in the case of a two-dimensional squared lattice, with periodic boundary conditions. In this lattice, we have $L\times L$ particles characterized by their spin (up or down). The starting point of the program will be a random lattice or a lattice with all the spins-up. 
+    \paragraph{}This project is all about implementing the Ising model to study the phase transitions. We will be in the case of a two-dimensional squared lattice, with periodic boundary conditions. In this lattice, we have $L\times L$ particles characterized by their spin (up or down). The starting point of the program will be a random lattice or a lattice with all the spins-up. Then, the Monte Carlo method, using the Metropolis algorithm, will performe flips of spins and we will compute the expectation values of several properties. The different implementation of the Monte Carlo method will improve the performance by avoiding useless calculations. \\
+    After running simple simulations in the very simple case of a $2 \times 2$ lattice, we will run the model with bigger lattice to study phenomena, such as the time (modelized by the number of Monte Carlo cycles) to reach the most likely state, the difference between when we start the simulation with an ordered lattice or a random one, the probability distribution at different temperatures. 
     
 
 \chapter{Theory}
@@ -748,9 +749,11 @@
         
         \paragraph{}There are two \texttt{montecarlo} methods in the class, one for a given temperature and one that increments automatically the temperature with the input temp-step. The precalculations of ${e}^{-\beta\Delta E}$ are doing after each Monte-Carlo run through a temperature because they change with the temperature. Those precalculations are member of the lattice and are initialized when we build the object.  
         
+        \paragraph{}Note that the random number generators are those from the cpp library proposed in this course and that they have a period over ${10}^{9}$, which is our maximum number of Monte-Carlo cycles. It is also used with the high resolution clock from the standard C++ library.
+        
         \subsection{Use of MPI and outputs}
         
-        	\paragraph{}We use MPI to run two simulations simultaneously because the more data we have, the more reliable our results are. Thus, when we output expected values that are the averages of the two simulations running simultaneously. This explains why we can have not-integer number of accepted configurations.
+        	\paragraph{}We use MPI to run two simulations simultaneously because the more data we have, the more reliable our results are. MPI allows to use more than one processor core. The data from the to distinct simulations can be merged in one set of data. Thus, when we output expected values, no matter if they are functions of the temperature or of the Monte Carlo cycles, that are the averages of the two simulations running simultaneously. This explains why we can have not-integer number of accepted configurations.
 	
 			\paragraph{}The program is then able to output $\langle E \rangle$, $\langle |M| \rangle$, $C_V$, $\sigma_E^2$ (the variance of $E$ : $\displaystyle C_V = \frac{\sigma_E}{kT^2}$), $\chi$ and the number of accepted configurations at each Monte-Carlo cycle or at each temperature, depending on which \texttt{montecarlo} method we choose.
 
@@ -1028,12 +1031,12 @@
             \paragraph{}At low temperature, we have very few possible values for the energy, the curve is centered near the expectation value of the energy. At temperature $T=2.4$, the Gaussian distribution is way more extended. We have more possible values. The curve is centered at the expectation value we have determined above. \\
             The variance in energy for $T=1$ are really big whereas we expected low variances because the curve is not extended. The variance at $T=2.4$ are smaller but still very big.
             
-\newpage
+    \newpage
     \section{Phase transitions}
     
         \subsection{The Ising model near the critical temperature}
         
-            \paragraph{}We will focus on a smaller interval around a supposed critical temperature : $T \in [2.0,2.3]$. We take different size for the lattice : $L=40$, $L=60$, $L=80$ and $L=100$.
+            \paragraph{}We will focus on a smaller interval around a supposed critical temperature : $T \in [2.0,2.3]$. We take different size for the lattice : $L=40$, $L=60$, $L=80$ and $L=100$ (do not pay attention to the titre above the plot, the size of the lattice is wrong). 
             
                 \begin{center}
                 \begin{figure}[h!]
@@ -1068,6 +1071,7 @@
                 \end{figure} 
                 \end{center}
                 
+                \newpage
                 \begin{center}
                 \begin{figure}[h!]
                     \hbox{
@@ -1100,7 +1104,7 @@
                     \caption{The mean magnetic moment as function of the temperature near the critical temperature for $L=40, 60, 80, 100$}
                 \end{figure} 
                 \end{center}
-                
+                \newpage
                 \begin{center}
                 \begin{figure}[h!]
                     \hbox{
@@ -1133,7 +1137,7 @@
                     \caption{The specific heat as function of the temperature near the critical temperature for $L=40, 60, 80, 100$}
                 \end{figure} 
                 \end{center}
-                
+                \newpage
                 \begin{center}
                 \begin{figure}[h!]
                     \hbox{
@@ -1169,7 +1173,8 @@
                 
             \paragraph{}We, again, do not have what we expected. We should see the phase transition on these plots. For example, the susceptibility should diverge at $T_C$. We are not able to find the critical temperature with these simulations.
             
-        \newpage
+            \paragraph{}Going from a debug mode to a release mode allows to go from a over 7mn computation time to an average 1mn30 computation time. That's at least one good result.
+            
         \subsection{The critical temperature}
             
             \paragraph{}As we do not have a value of $T_C(L)$, we are not able to use the equation. I will trust Lars Onsager and his value which is $\frac{kT_C}{J}\approx 2.269$.
@@ -1178,7 +1183,7 @@
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-    \paragraph{}
+    \paragraph{}Using the object oriented programing, we were able to have a clear code. Unfortunately, even with the clearest code, the results obtained are absolutely not what we expected. The program was however very efficient, and secured by several unit tests. We also have some proof that it may work, maybe with some corrections, as we had some good results.
     
 
 \chapter*{Bibliography}
