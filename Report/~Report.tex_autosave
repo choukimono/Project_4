@@ -851,14 +851,7 @@
                 \end{figure}
                 \end{center}
                 
-            \paragraph{}
-                
-                
-                
-                 
-                   
-            
-                \paragraph{}Two cases : ordered and random
+            \paragraph{}We observe that the mean energy converges quickly to the most likely state. Approximatively, we need 500000 Monte Carlo cycles to reach an equilibrium 
             
             \subsubsection{The probability distribution of a given energy}
     
