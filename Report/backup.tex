@@ -1,0 +1,87 @@
+       \begin{center}
+            \begin{tabular}{|c||M{3.5cm}|M{3.5cm}|M{3.5cm}|}
+            
+                \hline 
+                $\texttt{\_emptyness\_test()}$ & with & without & inline \\
+                \hline \hline
+                \multirow{5}*{Execution time (s)} & $0.767089$ & $0.724986$ & $0.727917$ \\
+                \cline{2-4}
+                & $0.820451$ & $0.733801$ & $0.724200$ \\
+                \cline{2-4}
+                & $0.818652$ & $0.735491$ & $0.731647$ \\
+                \cline{2-4}
+                & $0.764639$ & $0.726894$ & $0.740837$ \\
+                \cline{2-4}
+                & $0.803291$ & $0.738665$ & $0.788194$ \\
+                \hline \hline
+                Total (s) & $3.974122$ & $3.659837$ & $3.712795$ \\
+                \hline 
+        
+            \end{tabular}
+            \captionof{table}{Comparison of time of execution with, without or inline the function $\texttt{\_emptyness\_text()}$ for a $20 \times 20$ lattice and $100000$ itérations in five different cases for the function $\texttt{lattice::change\_random\_spin(void)}$}
+        \end{center}
+        
+        \begin{center}
+            \begin{tabular}{|M{4cm}|M{4cm}|}
+            
+                \hline
+                with/without & $7.9083\%$ \\
+                \hline 
+                inline/without & $1.4470\%$ \\
+                \hline
+                with/inline & $6.5757\%$ \\
+                \hline          
+            
+            \end{tabular}
+            \captionof{table}{Ratio}
+        \end{center}
+        
+        \begin{center}
+            \begin{tabular}{|c||M{3.5cm}|M{3.5cm}|}
+            
+                \hline 
+                & inline & non-inline \\
+                \hline \hline
+                \multirow{5}*{Execution time (s)} & $0.00214803$ & $0.00197528$  \\
+                \cline{2-3}
+                & $0.00193242$ & $0.00196044$ \\
+                \cline{2-3}
+                & $0.00193351$ & $0.00231188$ \\
+                \cline{2-3}
+                & $0.00223604$ & $0.00200409$ \\
+                \cline{2-3}
+                & $0.00194202$ & $0.00209086$ \\
+                \hline \hline
+                Total (s) & $0.01019202$ & $0.01034255$ \\
+                \hline \hline
+                Ratio inline/non-inline & \multicolumn{2}{c|}{$1.45544\%$} \\
+                \hline
+        
+            \end{tabular}
+            \captionof{table}{Comparison of time of execution inline or not the function $\texttt{lattice::energies(const int row, const int col)}$ for a $100 \times 100$ lattice in five different cases.}
+        \end{center}
+        
+        \begin{center}
+            \begin{tabular}{|c||M{3.5cm}|M{3.5cm}|}
+            
+                \hline 
+                & inline & non-inline \\
+                \hline \hline
+                \multirow{5}*{Execution time (s)} & $0.00151482$ & $0.00152923$  \\
+                \cline{2-3}
+                & $0.00212926$ & $0.00154181$ \\
+                \cline{2-3}
+                & $0.00159991$ & $0.00151376$ \\
+                \cline{2-3}
+                & $0.00187490$ & $0.00225723$ \\
+                \cline{2-3}
+                & $0.00189646$ & $0.00153893$ \\
+                \hline \hline
+                Total (s) & $0.00901535$ & $0.00838096$ \\
+                \hline \hline
+                Ratio inline/non-inline & \multicolumn{2}{c|}{$-7.56942\%$} \\
+                \hline
+        
+            \end{tabular}
+            \captionof{table}{Comparison of time of execution inline or not the function $\texttt{lattice::neighbors\_spin\_sum(const int row, const int col)}$ for a $100 \times 100$ lattice in five different cases.}
+        \end{center}

@@ -650,27 +650,11 @@
 
 \chapter{Implementation}
 
-    \paragraph{}For the programs of this project, we will use a object-oriented programing instead of standard programing with a lot of functions and variables. The program will then be closer to how we conceptualize the model.
-
-    \section{Calculations of the physical properties of a system}
+    \paragraph{}For the programs of this project, we will use a object-oriented programing instead of standard programing with a lot of functions and variables. The program will then be closer to how we conceptualize the model and more programatic as well, which facilitates the development and debugging because we rely on many small functions which are validated by unit-tests. Most of these so-called small functions can be used by the user.
     
-        
+    \paragraph{}Those are quite simple to code but the goal is to make the algorithm fast because those functions will be called thousands times during a full Monte Carlo run. The first thing is to use inline methods, the second is to use static variables. However this can lead to strange behavior of the program, and we decided not to use this while we did not know precisely how it works. Here is a benchmark of the performances of the function \texttt{lattice::change\_random\_spin(void)} if we add the test of emptiness of the lattice and how it can affect the performances.
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        \begin{center}
+     \begin{center}
             \begin{tabular}{|c||M{3.5cm}|M{3.5cm}|M{3.5cm}|}
             
                 \hline 
@@ -690,7 +674,9 @@
                 \hline 
         
             \end{tabular}
-            \captionof{table}{Comparison of time of execution with, without or inline the function $\texttt{\_emptyness\_text()}$ for a $20 \times 20$ lattice and $100000$ itérations in five different cases for the function $\texttt{lattice::change\_random\_spin(void)}$}
+            \captionof{table}{Comparison of time of execution with, without or inlining the function $\texttt{\_emptyness\_text()}$ for a $20 \times 20$ lattice and $100000$ iterations for the function $\texttt{lattice::change\_random\_spin(void)}$}.
+            
+
         \end{center}
         
         \begin{center}
@@ -708,60 +694,16 @@
             \captionof{table}{Ratio}
         \end{center}
         
-        \begin{center}
-            \begin{tabular}{|c||M{3.5cm}|M{3.5cm}|}
-            
-                \hline 
-                & inline & non-inline \\
-                \hline \hline
-                \multirow{5}*{Execution time (s)} & $0.00214803$ & $0.00197528$  \\
-                \cline{2-3}
-                & $0.00193242$ & $0.00196044$ \\
-                \cline{2-3}
-                & $0.00193351$ & $0.00231188$ \\
-                \cline{2-3}
-                & $0.00223604$ & $0.00200409$ \\
-                \cline{2-3}
-                & $0.00194202$ & $0.00209086$ \\
-                \hline \hline
-                Total (s) & $0.01019202$ & $0.01034255$ \\
-                \hline \hline
-                Ratio inline/non-inline & \multicolumn{2}{c|}{$1.45544\%$} \\
-                \hline
+        \paragraph{}We see that there is not much a difference by not using the function instead of writing it as an inline function.
         
-            \end{tabular}
-            \captionof{table}{Comparison of time of execution inline or not the function $\texttt{lattice::energies(const int row, const int col)}$ for a $100 \times 100$ lattice in five different cases.}
-        \end{center}
+      
         
-        \begin{center}
-            \begin{tabular}{|c||M{3.5cm}|M{3.5cm}|}
-            
-                \hline 
-                & inline & non-inline \\
-                \hline \hline
-                \multirow{5}*{Execution time (s)} & $0.00151482$ & $0.00152923$  \\
-                \cline{2-3}
-                & $0.00212926$ & $0.00154181$ \\
-                \cline{2-3}
-                & $0.00159991$ & $0.00151376$ \\
-                \cline{2-3}
-                & $0.00187490$ & $0.00225723$ \\
-                \cline{2-3}
-                & $0.00189646$ & $0.00153893$ \\
-                \hline \hline
-                Total (s) & $0.00901535$ & $0.00838096$ \\
-                \hline \hline
-                Ratio inline/non-inline & \multicolumn{2}{c|}{$-7.56942\%$} \\
-                \hline
-        
-            \end{tabular}
-            \captionof{table}{Comparison of time of execution inline or not the function $\texttt{lattice::neighbors\_spin\_sum(const int row, const int col)}$ for a $100 \times 100$ lattice in five different cases.}
-        \end{center}
                 
-        
-        
-        
     \section{The Metropolis algorithm}
+    
+    	\subsection{Basic receipe}
+	
+	\paragraph{}The philosophy here is a bit different than what the professor does. We flip  a spin at each Monte-Carlo cycle\footnote{We define a Monte-Carlo cycle as going through the lattice one and flipping only one spin. That is, for $n$ Monte-Carlo cycles we flip $n$ spins and accept $m$ configurations with $m\leq n$.}, see what happens for $\Delta E$, and we accept the move by updating the calculations or reject it by not updating the calculations and re-flipping the spin.
         
         \begin{center}
             \begin{algorithm}[H]
@@ -776,7 +718,7 @@
                         $\textbf{pick}$ a random spin\\
                         $\textbf{flip}$ the chosen spin\\
                         $\textbf{compute}$ the sum of the neighbors spins of the chosen spin\\
-                        $\textbf{choose}$ the corresponding $\Delta E$ \Comment{voir Table 1.2}\\                
+                        $\textbf{choose}$ the corresponding $\Delta E$ \Comment{see Table 1.2}\\                
                 
                         \eIf{$\Delta E \leq 0$}
                         {
@@ -804,9 +746,13 @@
             \end{algorithm}
         \end{center}        
         
+        \paragraph{}There are two \texttt{montecarlo} methods in the class, one for a given temperature and one that increments automatically the temperature with the input temp-step. The precalculations of ${e}^{-\beta\Delta E}$ are doing after each Monte-Carlo run through a temperature because they change with the temperature. Those precalculations are member of the lattice and are initialized when we build the object.  
         
-    \section{Critical temperature}
-
+        \subsection{Use of MPI and outputs}
+        
+        	\paragraph{}We use MPI to run two simulations simultaneously because the more data we have, the more reliable our results are. Thus, when we output expected values\footnote{No matter if they are functions of the temperature or of the Monte Carlo cycles.} that are the averages of the two simulations running simultaneously\footnote{This explains why we can have not-integer number of accepted configurations.}.
+	
+			\paragraph{}The program is then able to output $<E>$, $<|M|>$, $C_v$, $\sigma E$, $\chi$ and the number of accepted configurations at each Monte-Carlo cycle or at each temperature, depending on which \texttt{montecarlo} method we choose.
 
 
 \chapter{Results}
@@ -815,7 +761,7 @@
     
         \subsection{$2\times2$ case}
         
-            \paragraph{}This very simple case allows us to test the algorithm. We just have to compare the numerical results with the theorical ones.
+            \paragraph{}This very simple case allows us to test the algorithm. We just have to compare the numerical results with the theoritical ones.
             
             \paragraph{}Using the equations (5), (6), (8) and (10), we compute respectively the mean energy, the mean absolute magnetization, the specific heat and the susceptibility. We take $T=1.0$.
             Then,
