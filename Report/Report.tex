@@ -703,7 +703,7 @@
     
     	\subsection{Basic receipe}
 	
-	\paragraph{}The philosophy here is a bit different than what the professor does. We flip  a spin at each Monte-Carlo cycle\footnote{We define a Monte-Carlo cycle as going through the lattice one and flipping only one spin. That is, for $n$ Monte-Carlo cycles we flip $n$ spins and accept $m$ configurations with $m\leq n$.}, see what happens for $\Delta E$, and we accept the move by updating the calculations or reject it by not updating the calculations and re-flipping the spin.
+	\paragraph{}The philosophy here is a bit different than what the professor does. We flip  a spin at each Monte-Carlo cycle\footnote{We define a Monte-Carlo cycle as going through the lattice once and flipping only one spin. That is, for $n$ Monte-Carlo cycles we flip $n$ spins and accept $m$ configurations with $m\leq n$.}, see what happens for $\Delta E$, and we accept the move by updating the calculations or reject it by not updating the calculations and re-flipping the spin.
         
         \begin{center}
             \begin{algorithm}[H]
@@ -752,7 +752,7 @@
         
         	\paragraph{}We use MPI to run two simulations simultaneously because the more data we have, the more reliable our results are. Thus, when we output expected values\footnote{No matter if they are functions of the temperature or of the Monte Carlo cycles.} that are the averages of the two simulations running simultaneously\footnote{This explains why we can have not-integer number of accepted configurations.}.
 	
-			\paragraph{}The program is then able to output $<E>$, $<|M|>$, $C_v$, $\sigma E$, $\chi$ and the number of accepted configurations at each Monte-Carlo cycle or at each temperature, depending on which \texttt{montecarlo} method we choose.
+			\paragraph{}The program is then able to output $\langle E \rangle$, $\langle |M| \rangle$, $C_V$, $\sigma_E$, $\chi$ and the number of accepted configurations at each Monte-Carlo cycle or at each temperature, depending on which \texttt{montecarlo} method we choose.
 
 
 \chapter{Results}
