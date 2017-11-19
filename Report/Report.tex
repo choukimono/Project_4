@@ -175,7 +175,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{FYS3150\\Project 4 - Ising Model}
+\title{FYS3150\\Project 4 - }
 \author{Ethel Villeneuve}
 \date{October 2017 \\University of Oslo \\ \url{https://github.com/choukimono/Project_4.git}}
 
@@ -188,10 +188,9 @@
 	
 \begin{abstract}
     
-    \paragraph{}In this project, we want to implement an Ising model, by using the object-oriented programming. The Metropolis algorithm will be run in a lattice $20\times20$ and then bigger. We will study the properties of the system : the mean energy $E$, the mean magnetization $|M|$, the specific heat and the susceptibility $\chi$ as function of the temperature. \\
-    The purpose is then to study the phase transitions. We will again study these properties near the critical temperature (Curie point) in order to detect the phase transition. To improve the performance of the program, we will use MPI to parallelize programs. 
+    \paragraph{}In this project, we want to implement the Ising model, in the case of a two-dimensional squared lattice, with periodic boundary conditions, by using the object-oriented programming. In this lattice, we have $L\times L$ particles characterized by their spin (up or down). The starting point of the program will be a random lattice or a lattice with all the spins-up. The Metropolis algorithm will be run in a lattice $20\times20$ and then bigger. We will study the properties of the system : the mean energy $E$, the mean magnetization $|M|$, the specific heat and the susceptibility $\chi$ as function of the temperature. The purpose is then to study the phase transitions. We will again study these properties near the critical temperature (Curie point).
     
-    \paragraph{}Unfortunately, I was not able to have goos results for everything. But, from those I have, the equilibrium situation is reached after about $1\times 10^7$ Monte Carlo cycles, which means that we need at least this number of cycles in order to compute the expectation values. We can also see that the number of accepted configurations is directly linked with the number of Monte Carlo cycles, and with the temperature. Moreover, for larger temperature, we have more possible values of the energy than for smaller temperature. I was not able to see the phase transitions with my simulations.
+    \paragraph{}Quelques résultats...
     
 \end{abstract}
 
@@ -202,7 +201,7 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-    \paragraph{}This project is all about implementing the Ising model to study the phase transitions. We will be in the case of a two-dimensional squared lattice, with periodic boundary conditions. In this lattice, we have $L\times L$ particles characterized by their spin (up or down). The starting point of the program will be a random lattice or a lattice with all the spins-up. 
+    \paragraph{}
     
 
 \chapter{Theory}
@@ -524,7 +523,7 @@
             according to the work of Lars Onsager exposed in the Physical Review 65, 116 in 1944.
     
     
-    \section{The Monte Carlo method using the Metropolis algorithm}
+    \section{The Metropolis algorithm}
         
         \subsection{Introduction to the algorithm}
         
@@ -651,11 +650,11 @@
 
 \chapter{Implementation}
 
-    \paragraph{}For the programs of this project, we will use a object-oriented programing instead of standard programing with a lot of functions and variables. The program will then be closer to how we conceptualize the model and more programatic as well, which makes the development and the debugging easier because we rely on many small functions which are checked by unit tests. Most of these so-called small functions can be used by the user.
+    \paragraph{}For the programs of this project, we will use a object-oriented programing instead of standard programing with a lot of functions and variables. The program will then be closer to how we conceptualize the model and more programatic as well, which facilitates the development and debugging because we rely on many small functions which are validated by unit-tests. Most of these so-called small functions can be used by the user.
     
-    \paragraph{}Those are quite simple to code but the goal is to make the algorithm fast because those functions will be called thousands times during a full Monte Carlo run. The first thing is to use inline methods, the second is to use static variables. However this can lead to strange behavior of the program, and we decided not to use this. The following table shows the performances of the function \texttt{lattice::change\_random\_spin(void)} if we add the \texttt{\_emptyness\_test()} of the lattice and how it can affect the performance.
-    %
-    \begin{center}
+    \paragraph{}Those are quite simple to code but the goal is to make the algorithm fast because those functions will be called thousands times during a full Monte Carlo run. The first thing is to use inline methods, the second is to use static variables. However this can lead to strange behavior of the program, and we decided not to use this while we did not know precisely how it works. Here is a benchmark of the performances of the function \texttt{lattice::change\_random\_spin(void)} if we add the test of emptiness of the lattice and how it can affect the performances.
+    
+     \begin{center}
             \begin{tabular}{|c||M{3.5cm}|M{3.5cm}|M{3.5cm}|}
             
                 \hline 
@@ -692,18 +691,19 @@
                 \hline          
             
             \end{tabular}
-            \captionof{table}{Ratios}
+            \captionof{table}{Ratio}
         \end{center}
         
         \paragraph{}We see that there is not much a difference by not using the function instead of writing it as an inline function.
-
+        
+      
         
                 
-    \section{Monte Carlo method using the Metropolis algorithm}
+    \section{The Metropolis algorithm}
     
-    	\subsection{A different way to implement the algorithm}
+    	\subsection{Basic receipe}
 	
-	\paragraph{}We implement the Monte Carlo method in a different way than we did in the theory part (see Algorithm 1). This is way more efficient because we do not have to do useless calculations. We flip a random spin at each Monte-Carlo cycle\footnote{We define a Monte-Carlo cycle as going through the lattice once and flipping only one spin. That is, for $n$ Monte-Carlo cycles we flip $n$ spins and accept $m$ configurations with $m\leq n$.}, look for $\Delta E$, and we accept the move by updating the calculations or reject it by not updating the calculations and re-flipping the spin.
+	\paragraph{}The philosophy here is a bit different than what the professor does. We flip  a spin at each Monte-Carlo cycle\footnote{We define a Monte-Carlo cycle as going through the lattice once and flipping only one spin. That is, for $n$ Monte-Carlo cycles we flip $n$ spins and accept $m$ configurations with $m\leq n$.}, see what happens for $\Delta E$, and we accept the move by updating the calculations or reject it by not updating the calculations and re-flipping the spin.
         
         \begin{center}
             \begin{algorithm}[H]
@@ -750,9 +750,9 @@
         
         \subsection{Use of MPI and outputs}
         
-        	\paragraph{}We use MPI to run two simulations simultaneously because the more data we have, the more reliable our results are. Thus, when we output expected values that are the averages of the two simulations running simultaneously. This explains why we can have not-integer number of accepted configurations.
+        	\paragraph{}We use MPI to run two simulations simultaneously because the more data we have, the more reliable our results are. Thus, when we output expected values\footnote{No matter if they are functions of the temperature or of the Monte Carlo cycles.} that are the averages of the two simulations running simultaneously\footnote{This explains why we can have not-integer number of accepted configurations.}.
 	
-			\paragraph{}The program is then able to output $\langle E \rangle$, $\langle |M| \rangle$, $C_V$, $\sigma_E^2$ (the variance of $E$ : $\displaystyle C_V = \frac{\sigma_E}{kT^2}$), $\chi$ and the number of accepted configurations at each Monte-Carlo cycle or at each temperature, depending on which \texttt{montecarlo} method we choose.
+			\paragraph{}The program is then able to output $\langle E \rangle$, $\langle |M| \rangle$, $C_V$, $\sigma_E^2$, $\chi$ and the number of accepted configurations at each Monte-Carlo cycle or at each temperature, depending on which \texttt{montecarlo} method we choose.
 
 
 \chapter{Results}
@@ -761,19 +761,17 @@
     
         \subsection{$2\times2$ case}
         
-            \paragraph{}This very simple case allows us to test the algorithm. We just have to compare the numerical results with the theoritical ones.
-            
-            \paragraph{}Using the equations (5), (6), (8) and (10), we compute respectively the mean energy, the mean absolute magnetization, the specific heat and the susceptibility. We take $T=1.0$.
+            \paragraph{}This very simple case allows us to test the algorithm. We just have to compare the numerical results with the theoritical ones.\\
+            Using the equations (5), (6), (8) and (10), we compute respectively the mean energy, the mean absolute magnetization, the specific heat and the susceptibility. We take $T=1.0$.
             Then,
-                
+            %    
                 \begin{align*}
-                    \langle E \rangle = -7.98393 \tag{12}\\
-                    \langle |M| \rangle = 3.99464 \tag{13}\\
-                    C_V = 0.128315 \tag{14}\\
-                    \chi = 0.0160394 \tag{15}\\
+                    \langle E \rangle &= -7.98393  
+                    && \langle |M| \rangle = 3.99464 \\
+                    C_V &= 0.128315
+                    &&\chi = 0.0160394\\
                 \end{align*}
-                
-             %
+            %
             Let's see what we get with the simulations. We run the program four times. 
             %    
                 \begin{center}
@@ -1171,8 +1169,7 @@
             
         \newpage
         \subsection{The critical temperature}
-            
-            \paragraph{}As we do not have a value of $T_C(L)$, we are not able to use the equation. I will trust Lars Onsager and his value which is $\frac{kT_C}{J}\approx 2.269$.
+
 
 
 \chapter*{Conclusion}
