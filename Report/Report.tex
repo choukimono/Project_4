@@ -550,9 +550,9 @@
             
                 \KwIn{$E_b$ the energy of the initial random configuration.}
                 \KwIn{$E_t$ the energy of the configuration obtained by flipping one spin.}
-                $E_t - E_b \rightarrow \Delta E$\;
-		$E_t \rightarrow E_b$\;
-		$\textbf{init}$ expectation values for the state with the energy $E_b$\;
+                $E_t - E_b \rightarrow \Delta E$\\
+		$E_t \rightarrow E_b$\\
+		$\textbf{init}$ expectation values for the state with the energy $E_b$\\
 		
                     \For{\textnormal{each new configuration}}
                     {
@@ -560,6 +560,7 @@
 		        $E_t - E_b \rightarrow \Delta E$\\
                         \eIf{$\Delta E \leq 0$}
                         {
+                            accept the new configuration\\                            
                             $E_t \rightarrow E_b$\\
                         }{
 		            $\textbf{pick}$ a random number $r \in [0,1]$\\
@@ -768,34 +769,41 @@
             \SetAlgoLined
             
                 \KwIn{a random configuration}
-                
-                $E_t - E_b \rightarrow \Delta E$\;
-		$E_t \rightarrow E_b$\;
-		$\textbf{init}$ expectation values for the state with the energy $E_b$\;
-		
-                    \For{\textnormal{each new configuration}}
+                \KwIn{the number of Monte Carlo cycle $mc$}
+                $\textbf{init}$ $\textnormal{acc\_conf}$ the number of accepted configuration\\
+                    \For{$n \leq mc$}
                     {
-                        energy of the new configuration $\rightarrow E_t$\\
-		        $E_t - E_b \rightarrow \Delta E$\\
+                        $\textbf{pick}$ a random spin\\
+                        $\textbf{flip}$ the chosen spin\\
+                        $\textbf{compute}$ the sum of the neighbors spins of the chosen spin\\
+                        $\textbf{choose}$ the corresponding $\Delta E$ \Comment{voir Table 1.2}\\                
+                
                         \eIf{$\Delta E \leq 0$}
                         {
-                            $E_t \rightarrow E_b$\\
+                            accept the new configuration\\
+                            $E + \Delta E \rightarrow E$\\
+                            $M + 2 \times \textnormal{[the chosen spin]} \rightarrow M$\\
+                            $\textnormal{acc\_conf} + 1 \rightarrow \textnormal{acc\_conf}$\\
                         }{
-		            $\textbf{pick}$ a random number $r \in [0,1]$\\
-                            \eIf{$r \leq e^{-\beta \Delta E}$}
+                            \textbf{pick} a random number $r \in [0,1]$\\
+                            \eIf{$r \leq e^{-\beta \Delta E}$}                 
                             {
                                 accept the new configuration\\
-                                $E_t \rightarrow E_b$\\
+                                $E + \Delta E \rightarrow E$\\
+                                $M + 2 \times \textnormal{[the chosen spin]} \rightarrow M$\\
+                                $\textnormal{acc\_conf} + 1 \rightarrow \textnormal{acc\_conf}$\\                                
                             }{
-                                keep the old configuration\\
+                                reject the new configuration\\
+                                $\textbf{flip}$ again the chosen spin\\
                             }
                         }
-                        $\textbf{update}$ expectation values\\
-                    } 
-                  
-            \caption{Monte Carlo method using the Metropolis algorithm}  
+                        $n + 1 \rightarrow n$
+                    }
+              
+            \caption{Implementation of the Monte Carlo method using the Metropolis algorithm}
             \end{algorithm}
         \end{center}        
+        
         
     \section{Critical temperature}
 
