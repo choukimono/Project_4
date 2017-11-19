@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.14)  19 NOV 2017 23:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.9.14)  19 NOV 2017 23:57
 entering extended mode
 **./Report.tex
 (Report.tex
@@ -2244,22 +2244,22 @@ Chapter 1.
 ]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 332.
+(caption)                particular \caption on input line 333.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (28.65698pt too wide) in paragraph at lines 340--340
+Overfull \hbox (28.65698pt too wide) in paragraph at lines 341--341
 [] 
  []
 
 [5] [6] [7] [8] [9] [10]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 646.
+(caption)                particular \caption on input line 647.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (18.86325pt too wide) in paragraph at lines 590--646
+Overfull \hbox (18.86325pt too wide) in paragraph at lines 591--647
  [] 
  []
 
@@ -2267,85 +2267,85 @@ Overfull \hbox (18.86325pt too wide) in paragraph at lines 590--646
 Chapter 2.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 679.
+(caption)                particular \caption on input line 680.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (11.37448pt too wide) in paragraph at lines 660--679
+Overfull \hbox (11.37448pt too wide) in paragraph at lines 661--680
  [] 
  []
 
 
-Underfull \hbox (badness 1609) in paragraph at lines 679--679
+Underfull \hbox (badness 1609) in paragraph at lines 680--680
 []\T1/lmr/m/n/10.95 Table 2.1: |[]Comparison of time of ex-e-cu-tion with, with
 -out or in-lin-ing the func-
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 696.
+(caption)                particular \caption on input line 697.
 See the caption package documentation for explanation.
 
 [12
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 707.
+(Font)              <9> on input line 708.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 707.
+(Font)              <5> on input line 708.
  [13] [14]
 Chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 765.
+(hyperref)                removing `math shift' on input line 766.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 765.
+(hyperref)                removing `\times' on input line 766.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 765.
+(hyperref)                removing `math shift' on input line 766.
 
-<Results/B/T=1/Plots/energies_positive.png, id=238, 481.8pt x 361.35pt>
+<Results/B/T=1/Plots/energies_positive.png, id=240, 481.8pt x 361.35pt>
 File: Results/B/T=1/Plots/energies_positive.png Graphic file (type png)
 
 <use Results/B/T=1/Plots/energies_positive.png>
 Package pdftex.def Info: Results/B/T=1/Plots/energies_positive.png used on inpu
-t line 787.
+t line 788.
 (pdftex.def)             Requested size: 227.62228pt x 184.9422pt.
 
-Overfull \hbox (26.36574pt too wide) in paragraph at lines 787--788
+Overfull \hbox (26.36574pt too wide) in paragraph at lines 788--789
  [][] 
  []
 
-<Results/B/T=1/Plots/energies_random.png, id=239, 481.8pt x 361.35pt>
+<Results/B/T=1/Plots/energies_random.png, id=241, 481.8pt x 361.35pt>
 File: Results/B/T=1/Plots/energies_random.png Graphic file (type png)
 
 <use Results/B/T=1/Plots/energies_random.png>
 Package pdftex.def Info: Results/B/T=1/Plots/energies_random.png used on input 
-line 792.
+line 793.
 (pdftex.def)             Requested size: 199.16399pt x 184.9422pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Results/B/T=1/Plots/Moments_positive.png, id=240, 642.4pt x 481.8pt>
+<Results/B/T=1/Plots/Moments_positive.png, id=242, 642.4pt x 481.8pt>
 File: Results/B/T=1/Plots/Moments_positive.png Graphic file (type png)
 
 <use Results/B/T=1/Plots/Moments_positive.png>
 Package pdftex.def Info: Results/B/T=1/Plots/Moments_positive.png used on input
- line 805.
+ line 806.
 (pdftex.def)             Requested size: 284.5291pt x 184.9385pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Results/B/T=1/Plots/Cv.png, id=242, 481.8pt x 361.35pt>
+<Results/B/T=1/Plots/Cv.png, id=244, 481.8pt x 361.35pt>
 File: Results/B/T=1/Plots/Cv.png Graphic file (type png)
 
 <use Results/B/T=1/Plots/Cv.png>
-Package pdftex.def Info: Results/B/T=1/Plots/Cv.png used on input line 815.
+Package pdftex.def Info: Results/B/T=1/Plots/Cv.png used on input line 816.
 (pdftex.def)             Requested size: 284.53154pt x 170.71672pt.
 
 
@@ -2353,48 +2353,48 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [15
 
-] <Results/B/T=1/Plots/Khi.png, id=251, 481.8pt x 361.35pt>
+] <Results/B/T=1/Plots/Khi.png, id=253, 481.8pt x 361.35pt>
 File: Results/B/T=1/Plots/Khi.png Graphic file (type png)
 
 <use Results/B/T=1/Plots/Khi.png>
-Package pdftex.def Info: Results/B/T=1/Plots/Khi.png used on input line 825.
+Package pdftex.def Info: Results/B/T=1/Plots/Khi.png used on input line 826.
 (pdftex.def)             Requested size: 284.53154pt x 227.62413pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Results/B/Fonction_de_T/energy.png, id=252, 481.8pt x 361.35pt>
+<Results/B/Fonction_de_T/energy.png, id=254, 481.8pt x 361.35pt>
 File: Results/B/Fonction_de_T/energy.png Graphic file (type png)
 
 <use Results/B/Fonction_de_T/energy.png>
 Package pdftex.def Info: Results/B/Fonction_de_T/energy.png used on input line 
-838.
+839.
 (pdftex.def)             Requested size: 199.16399pt x 156.49124pt.
 
-<Results/B/Fonction_de_T/moment.png, id=253, 481.8pt x 361.35pt>
+<Results/B/Fonction_de_T/moment.png, id=255, 481.8pt x 361.35pt>
 File: Results/B/Fonction_de_T/moment.png Graphic file (type png)
 
 <use Results/B/Fonction_de_T/moment.png>
 Package pdftex.def Info: Results/B/Fonction_de_T/moment.png used on input line 
-843.
+844.
 (pdftex.def)             Requested size: 199.16399pt x 156.49124pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Results/B/Fonction_de_T/cv.png, id=254, 481.8pt x 361.35pt>
+<Results/B/Fonction_de_T/cv.png, id=256, 481.8pt x 361.35pt>
 File: Results/B/Fonction_de_T/cv.png Graphic file (type png)
 
 <use Results/B/Fonction_de_T/cv.png>
-Package pdftex.def Info: Results/B/Fonction_de_T/cv.png used on input line 856.
+Package pdftex.def Info: Results/B/Fonction_de_T/cv.png used on input line 857.
 
 (pdftex.def)             Requested size: 199.16399pt x 156.49124pt.
 
-<Results/B/Fonction_de_T/khi.png, id=255, 642.4pt x 481.8pt>
+<Results/B/Fonction_de_T/khi.png, id=257, 642.4pt x 481.8pt>
 File: Results/B/Fonction_de_T/khi.png Graphic file (type png)
 
 <use Results/B/Fonction_de_T/khi.png>
-Package pdftex.def Info: Results/B/Fonction_de_T/khi.png used on input line 861
+Package pdftex.def Info: Results/B/Fonction_de_T/khi.png used on input line 862
 .
 (pdftex.def)             Requested size: 199.17134pt x 156.48756pt.
 
@@ -2405,15 +2405,15 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 es_random.png> <./Results/B/T=1/Plots/Moments_positive.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 872.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 871.
+(hyperref)                removing `\times' on input line 872.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 871.
+(hyperref)                removing `math shift' on input line 872.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2421,75 +2421,75 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [17 <./Results/B/T=1/Plots/Cv.png> <./Results/B/T=1/Plots/Khi.png>] [18 <./Res
 ults/B/Fonction_de_T/energy.png> <./Results/B/Fonction_de_T/moment.png> <./Resu
 lts/B/Fonction_de_T/cv.png> <./Results/B/Fonction_de_T/khi.png>]
-<Results/C/T=1/Positive/energy.png, id=289, 481.8pt x 361.35pt>
+<Results/C/T=1/Positive/energy.png, id=291, 481.8pt x 361.35pt>
 File: Results/C/T=1/Positive/energy.png Graphic file (type png)
 
 <use Results/C/T=1/Positive/energy.png>
 Package pdftex.def Info: Results/C/T=1/Positive/energy.png used on input line 8
-83.
+84.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 883--884
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 884--885
  [][] 
  []
 
-<Results/C/T=2,4/Positive/energy.png, id=290, 481.8pt x 361.35pt>
+<Results/C/T=2,4/Positive/energy.png, id=292, 481.8pt x 361.35pt>
 File: Results/C/T=2,4/Positive/energy.png Graphic file (type png)
 
 <use Results/C/T=2,4/Positive/energy.png>
 Package pdftex.def Info: Results/C/T=2,4/Positive/energy.png used on input line
- 888.
+ 889.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 888--889
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 889--890
  [][] 
  []
 
-<Results/C/T=1/Random/energy.png, id=291, 481.8pt x 361.35pt>
+<Results/C/T=1/Random/energy.png, id=293, 481.8pt x 361.35pt>
 File: Results/C/T=1/Random/energy.png Graphic file (type png)
 
 <use Results/C/T=1/Random/energy.png>
-Package pdftex.def Info: Results/C/T=1/Random/energy.png used on input line 901
+Package pdftex.def Info: Results/C/T=1/Random/energy.png used on input line 902
 .
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 901--902
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 902--903
  [][] 
  []
 
-<Results/C/T=2,4/Random/energy.png, id=292, 481.8pt x 361.35pt>
+<Results/C/T=2,4/Random/energy.png, id=294, 481.8pt x 361.35pt>
 File: Results/C/T=2,4/Random/energy.png Graphic file (type png)
 
 <use Results/C/T=2,4/Random/energy.png>
 Package pdftex.def Info: Results/C/T=2,4/Random/energy.png used on input line 9
-06.
+07.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 906--907
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 907--908
  [][] 
  []
 
-<Results/C/T=1/Positive/moment.png, id=293, 481.8pt x 361.35pt>
+<Results/C/T=1/Positive/moment.png, id=295, 481.8pt x 361.35pt>
 File: Results/C/T=1/Positive/moment.png Graphic file (type png)
 
 <use Results/C/T=1/Positive/moment.png>
 Package pdftex.def Info: Results/C/T=1/Positive/moment.png used on input line 9
-21.
+22.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 921--922
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 922--923
  [][] 
  []
 
-<Results/C/T=2,4/Positive/moment.png, id=294, 481.8pt x 361.35pt>
+<Results/C/T=2,4/Positive/moment.png, id=296, 481.8pt x 361.35pt>
 File: Results/C/T=2,4/Positive/moment.png Graphic file (type png)
 
 <use Results/C/T=2,4/Positive/moment.png>
 Package pdftex.def Info: Results/C/T=2,4/Positive/moment.png used on input line
- 926.
+ 927.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 926--927
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 927--928
  [][] 
  []
 
@@ -2498,290 +2498,290 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [19 <./Results/C/T=1/Positive/energy.png> <./Results/C/T=2,4/Positive/energy.pn
 g> <./Results/C/T=1/Random/energy.png> <./Results/C/T=2,4/Random/energy.png>]
-<Results/C/T=1/Random/moment.png, id=306, 481.8pt x 361.35pt>
+<Results/C/T=1/Random/moment.png, id=308, 481.8pt x 361.35pt>
 File: Results/C/T=1/Random/moment.png Graphic file (type png)
 
 <use Results/C/T=1/Random/moment.png>
-Package pdftex.def Info: Results/C/T=1/Random/moment.png used on input line 939
+Package pdftex.def Info: Results/C/T=1/Random/moment.png used on input line 940
 .
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 939--940
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 940--941
  [][] 
  []
 
-<Results/C/T=2,4/Random/moment.png, id=307, 481.8pt x 361.35pt>
+<Results/C/T=2,4/Random/moment.png, id=309, 481.8pt x 361.35pt>
 File: Results/C/T=2,4/Random/moment.png Graphic file (type png)
 
 <use Results/C/T=2,4/Random/moment.png>
 Package pdftex.def Info: Results/C/T=2,4/Random/moment.png used on input line 9
-44.
+45.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 944--945
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 945--946
  [][] 
  []
 
 [20 <./Results/C/T=1/Positive/moment.png> <./Results/C/T=2,4/Positive/moment.pn
 g (PNG copy)> <./Results/C/T=1/Random/moment.png> <./Results/C/T=2,4/Random/mom
 ent.png (PNG copy)>]
-<Results/C_et_D/T=1/Positive/configs.png, id=317, 481.8pt x 361.35pt>
+<Results/C_et_D/T=1/Positive/configs.png, id=319, 481.8pt x 361.35pt>
 File: Results/C_et_D/T=1/Positive/configs.png Graphic file (type png)
 
 <use Results/C_et_D/T=1/Positive/configs.png>
 Package pdftex.def Info: Results/C_et_D/T=1/Positive/configs.png used on input 
-line 978.
+line 979.
 (pdftex.def)             Requested size: 213.38947pt x 199.16766pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 978--979
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 979--980
  [][] 
  []
 
-<Results/C_et_D/T=1/Random/configs.png, id=318, 481.8pt x 361.35pt>
+<Results/C_et_D/T=1/Random/configs.png, id=320, 481.8pt x 361.35pt>
 File: Results/C_et_D/T=1/Random/configs.png Graphic file (type png)
 
 <use Results/C_et_D/T=1/Random/configs.png>
 Package pdftex.def Info: Results/C_et_D/T=1/Random/configs.png used on input li
-ne 983.
+ne 984.
 (pdftex.def)             Requested size: 213.38947pt x 199.16766pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 983--984
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 984--985
  [][] 
  []
 
 [21 <./Results/C_et_D/T=1/Positive/configs.png (PNG copy)> <./Results/C_et_D/T=
 1/Random/configs.png>]
-<Results/C_et_D/T=2,4/Positive/configs.png, id=326, 481.8pt x 361.35pt>
+<Results/C_et_D/T=2,4/Positive/configs.png, id=328, 481.8pt x 361.35pt>
 File: Results/C_et_D/T=2,4/Positive/configs.png Graphic file (type png)
 
 <use Results/C_et_D/T=2,4/Positive/configs.png>
 Package pdftex.def Info: Results/C_et_D/T=2,4/Positive/configs.png used on inpu
-t line 996.
+t line 997.
 (pdftex.def)             Requested size: 213.38947pt x 199.16766pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 996--997
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 997--998
  [][] 
  []
 
-<Results/C_et_D/T=2,4/Random/configs.png, id=327, 481.8pt x 361.35pt>
+<Results/C_et_D/T=2,4/Random/configs.png, id=329, 481.8pt x 361.35pt>
 File: Results/C_et_D/T=2,4/Random/configs.png Graphic file (type png)
 
 <use Results/C_et_D/T=2,4/Random/configs.png>
 Package pdftex.def Info: Results/C_et_D/T=2,4/Random/configs.png used on input 
-line 1001.
+line 1002.
 (pdftex.def)             Requested size: 213.38947pt x 199.16766pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1001--1002
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1002--1003
  [][] 
  []
 
-<Results/C_et_D/T=1/Positive/energies_proba.png, id=328, 642.4pt x 481.8pt>
+<Results/C_et_D/T=1/Positive/energies_proba.png, id=330, 642.4pt x 481.8pt>
 File: Results/C_et_D/T=1/Positive/energies_proba.png Graphic file (type png)
 
 <use Results/C_et_D/T=1/Positive/energies_proba.png>
 Package pdftex.def Info: Results/C_et_D/T=1/Positive/energies_proba.png used on
- input line 1019.
+ input line 1020.
 (pdftex.def)             Requested size: 213.39436pt x 170.71304pt.
 
-Overfull \hbox (12.13782pt too wide) in paragraph at lines 1019--1020
+Overfull \hbox (12.13782pt too wide) in paragraph at lines 1020--1021
  [][] 
  []
 
 
-<Results/C_et_D/T=2,4/Positive/energies_proba.png, id=329, 481.8pt x 361.35pt>
+<Results/C_et_D/T=2,4/Positive/energies_proba.png, id=331, 481.8pt x 361.35pt>
 File: Results/C_et_D/T=2,4/Positive/energies_proba.png Graphic file (type png)
 
 <use Results/C_et_D/T=2,4/Positive/energies_proba.png>
 Package pdftex.def Info: Results/C_et_D/T=2,4/Positive/energies_proba.png used 
-on input line 1024.
+on input line 1025.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1024--1025
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1025--1026
  [][] 
  []
 
 [22 <./Results/C_et_D/T=2,4/Positive/configs.png (PNG copy)> <./Results/C_et_D/
 T=2,4/Random/configs.png (PNG copy)> <./Results/C_et_D/T=1/Positive/energies_pr
 oba.png> <./Results/C_et_D/T=2,4/Positive/energies_proba.png (PNG copy)>]
-[23] <Results/E/L=40/energy.png, id=345, 481.8pt x 361.35pt>
+[23] <Results/E/L=40/energy.png, id=347, 481.8pt x 361.35pt>
 File: Results/E/L=40/energy.png Graphic file (type png)
 
 <use Results/E/L=40/energy.png>
-Package pdftex.def Info: Results/E/L=40/energy.png used on input line 1046.
+Package pdftex.def Info: Results/E/L=40/energy.png used on input line 1047.
 (pdftex.def)             Requested size: 213.38947pt x 199.16766pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1046--1047
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1047--1048
  [][] 
  []
 
-<Results/E/L=60/energy.png, id=346, 481.8pt x 361.35pt>
+<Results/E/L=60/energy.png, id=348, 481.8pt x 361.35pt>
 File: Results/E/L=60/energy.png Graphic file (type png)
 
 <use Results/E/L=60/energy.png>
-Package pdftex.def Info: Results/E/L=60/energy.png used on input line 1051.
+Package pdftex.def Info: Results/E/L=60/energy.png used on input line 1052.
 (pdftex.def)             Requested size: 213.38947pt x 199.16766pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1051--1052
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1052--1053
  [][] 
  []
 
-<Results/E/L=80/energy.png, id=347, 481.8pt x 361.35pt>
+<Results/E/L=80/energy.png, id=349, 481.8pt x 361.35pt>
 File: Results/E/L=80/energy.png Graphic file (type png)
 
 <use Results/E/L=80/energy.png>
-Package pdftex.def Info: Results/E/L=80/energy.png used on input line 1062.
+Package pdftex.def Info: Results/E/L=80/energy.png used on input line 1063.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1062--1063
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1063--1064
  [][] 
  []
 
-<Results/E/L=100/energy.png, id=348, 481.8pt x 361.35pt>
+<Results/E/L=100/energy.png, id=350, 481.8pt x 361.35pt>
 File: Results/E/L=100/energy.png Graphic file (type png)
 
 <use Results/E/L=100/energy.png>
-Package pdftex.def Info: Results/E/L=100/energy.png used on input line 1067.
+Package pdftex.def Info: Results/E/L=100/energy.png used on input line 1068.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1067--1068
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1068--1069
  [][] 
  []
 
 [24 <./Results/E/L=40/energy.png> <./Results/E/L=60/energy.png> <./Results/E/L=
 80/energy.png> <./Results/E/L=100/energy.png>]
-<Results/E/L=40/moment.png, id=361, 481.8pt x 361.35pt>
+<Results/E/L=40/moment.png, id=363, 481.8pt x 361.35pt>
 File: Results/E/L=40/moment.png Graphic file (type png)
 
 <use Results/E/L=40/moment.png>
-Package pdftex.def Info: Results/E/L=40/moment.png used on input line 1080.
+Package pdftex.def Info: Results/E/L=40/moment.png used on input line 1081.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1080--1081
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1081--1082
  [][] 
  []
 
-<Results/E/L=60/moment.png, id=362, 481.8pt x 361.35pt>
+<Results/E/L=60/moment.png, id=364, 481.8pt x 361.35pt>
 File: Results/E/L=60/moment.png Graphic file (type png)
 
 <use Results/E/L=60/moment.png>
-Package pdftex.def Info: Results/E/L=60/moment.png used on input line 1085.
+Package pdftex.def Info: Results/E/L=60/moment.png used on input line 1086.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1085--1086
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1086--1087
  [][] 
  []
 
-<Results/E/L=80/moment.png, id=363, 481.8pt x 361.35pt>
+<Results/E/L=80/moment.png, id=365, 481.8pt x 361.35pt>
 File: Results/E/L=80/moment.png Graphic file (type png)
 
 <use Results/E/L=80/moment.png>
-Package pdftex.def Info: Results/E/L=80/moment.png used on input line 1096.
+Package pdftex.def Info: Results/E/L=80/moment.png used on input line 1097.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1096--1097
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1097--1098
  [][] 
  []
 
-<Results/E/L=100/moment.png, id=364, 481.8pt x 361.35pt>
+<Results/E/L=100/moment.png, id=366, 481.8pt x 361.35pt>
 File: Results/E/L=100/moment.png Graphic file (type png)
 
 <use Results/E/L=100/moment.png>
-Package pdftex.def Info: Results/E/L=100/moment.png used on input line 1101.
+Package pdftex.def Info: Results/E/L=100/moment.png used on input line 1102.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1101--1102
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1102--1103
  [][] 
  []
 
 [25 <./Results/E/L=40/moment.png> <./Results/E/L=60/moment.png> <./Results/E/L=
 80/moment.png> <./Results/E/L=100/moment.png>]
-<Results/E/L=40/cv.png, id=375, 481.8pt x 361.35pt>
+<Results/E/L=40/cv.png, id=377, 481.8pt x 361.35pt>
 File: Results/E/L=40/cv.png Graphic file (type png)
 
 <use Results/E/L=40/cv.png>
-Package pdftex.def Info: Results/E/L=40/cv.png used on input line 1113.
+Package pdftex.def Info: Results/E/L=40/cv.png used on input line 1114.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1113--1114
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1114--1115
  [][] 
  []
 
-<Results/E/L=60/cv.png, id=376, 481.8pt x 361.35pt>
+<Results/E/L=60/cv.png, id=378, 481.8pt x 361.35pt>
 File: Results/E/L=60/cv.png Graphic file (type png)
 
 <use Results/E/L=60/cv.png>
-Package pdftex.def Info: Results/E/L=60/cv.png used on input line 1118.
+Package pdftex.def Info: Results/E/L=60/cv.png used on input line 1119.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1118--1119
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1119--1120
  [][] 
  []
 
-<Results/E/L=80/cv.png, id=377, 481.8pt x 361.35pt>
+<Results/E/L=80/cv.png, id=379, 481.8pt x 361.35pt>
 File: Results/E/L=80/cv.png Graphic file (type png)
 
 <use Results/E/L=80/cv.png>
-Package pdftex.def Info: Results/E/L=80/cv.png used on input line 1129.
+Package pdftex.def Info: Results/E/L=80/cv.png used on input line 1130.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1129--1130
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1130--1131
  [][] 
  []
 
-<Results/E/L=100/cv.png, id=378, 481.8pt x 361.35pt>
+<Results/E/L=100/cv.png, id=380, 481.8pt x 361.35pt>
 File: Results/E/L=100/cv.png Graphic file (type png)
 
 <use Results/E/L=100/cv.png>
-Package pdftex.def Info: Results/E/L=100/cv.png used on input line 1134.
+Package pdftex.def Info: Results/E/L=100/cv.png used on input line 1135.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1134--1135
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1135--1136
  [][] 
  []
 
 [26 <./Results/E/L=40/cv.png> <./Results/E/L=60/cv.png> <./Results/E/L=80/cv.pn
 g> <./Results/E/L=100/cv.png>]
-<Results/E/L=40/khi.png, id=389, 481.8pt x 361.35pt>
+<Results/E/L=40/khi.png, id=391, 481.8pt x 361.35pt>
 File: Results/E/L=40/khi.png Graphic file (type png)
 
 <use Results/E/L=40/khi.png>
-Package pdftex.def Info: Results/E/L=40/khi.png used on input line 1146.
+Package pdftex.def Info: Results/E/L=40/khi.png used on input line 1147.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1146--1147
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1147--1148
  [][] 
  []
 
-<Results/E/L=60/khi.png, id=390, 481.8pt x 361.35pt>
+<Results/E/L=60/khi.png, id=392, 481.8pt x 361.35pt>
 File: Results/E/L=60/khi.png Graphic file (type png)
 
 <use Results/E/L=60/khi.png>
-Package pdftex.def Info: Results/E/L=60/khi.png used on input line 1151.
+Package pdftex.def Info: Results/E/L=60/khi.png used on input line 1152.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1151--1152
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1152--1153
  [][] 
  []
 
-<Results/E/L=80/khi.png, id=391, 481.8pt x 361.35pt>
+<Results/E/L=80/khi.png, id=393, 481.8pt x 361.35pt>
 File: Results/E/L=80/khi.png Graphic file (type png)
 
 <use Results/E/L=80/khi.png>
-Package pdftex.def Info: Results/E/L=80/khi.png used on input line 1162.
+Package pdftex.def Info: Results/E/L=80/khi.png used on input line 1163.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1162--1163
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1163--1164
  [][] 
  []
 
-<Results/E/L=100/khi.png, id=392, 481.8pt x 361.35pt>
+<Results/E/L=100/khi.png, id=394, 481.8pt x 361.35pt>
 File: Results/E/L=100/khi.png Graphic file (type png)
 
 <use Results/E/L=100/khi.png>
-Package pdftex.def Info: Results/E/L=100/khi.png used on input line 1167.
+Package pdftex.def Info: Results/E/L=100/khi.png used on input line 1168.
 (pdftex.def)             Requested size: 213.38947pt x 170.71672pt.
 
-Overfull \hbox (12.13292pt too wide) in paragraph at lines 1167--1168
+Overfull \hbox (12.13292pt too wide) in paragraph at lines 1168--1169
  [][] 
  []
 
@@ -2789,59 +2789,69 @@ Overfull \hbox (12.13292pt too wide) in paragraph at lines 1167--1168
 .png> <./Results/E/L=100/khi.png>] [28
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1192
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1193
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1192.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1193.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1197.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1198.
  [29
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1197.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1198.
 
 (C:\Users\tetee\Desktop\UiO\FYS3150\Github\Project_4\Report\.texiteasy\Report.a
 ux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1197.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1197.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1198.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1198.
 
-Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 92E521A974F2E3EE6F43916D48B855D7;1656.
+
+
+Package rerunfilecheck Warning: File `Report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Report.out':
+(rerunfilecheck)             Before: 92E521A974F2E3EE6F43916D48B855D7;1656
+(rerunfilecheck)             After:  E86E978812CBF28E5C48A8A9BFDB38FA;1656.
  ) 
 Here is how much of TeX's memory you used:
- 23390 strings out of 493328
- 390919 string characters out of 3139124
+ 23392 strings out of 493328
+ 390941 string characters out of 3139124
  532149 words of memory out of 3000000
  26449 multiletter control sequences out of 15000+200000
  610747 words of font info for 83 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,19n,95p,10405b,522s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/d
-vips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit
-.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}<C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/lm/lmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/lm/lmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/l
-m/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/lm/lmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy9.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Report.pdf (30 pages, 757874 bytes).
+ 53i,19n,95p,10405b,520s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{chapter*.68} has been referenced but does not exi
+st, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiK
+TeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc
+/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.e
+nc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}<C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+lm/lmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/lm/lmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/
+lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/lm/lmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy9.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
+Output written on Report.pdf (30 pages, 760152 bytes).
 PDF statistics:
- 514 PDF objects out of 1000 (max. 8388607)
- 130 named destinations out of 1000 (max. 500000)
+ 516 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
  380 words of extra memory for PDF output out of 10000 (max. 10000000)
 
