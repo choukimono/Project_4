@@ -1,15 +1,23 @@
+//
+//  lattice.cpp
+//  Program
+//
+//  Created by Antoine Hugounet on 04/11/2017.
+//
+
 #include <iostream>
 #include <iomanip>
 #include <mpi.h>
 #include <fstream>
 #include <string>
-#include <array>;
+#include <vector>
+#include <algorithm>        //  std::sort
+#include <math.h>
 #include "lattice.hpp"
 #include "lib/lib.h"
-#include "functions.hpp"
+#include "functions.hpp"    //  rng
 
 
-    // Initialization
 lattice::lattice(void)
 {
     _accepted_configs = 0;
@@ -18,7 +26,7 @@ lattice::lattice(void)
     _E = 0.;
     _E_variance = 0.;
     _khi = 0.;
-    _mc_cycles = 0.;
+    _mc_cycles = 1; //  avoid "inf" results
     _M = 0.;
     _T = 0.;
 
@@ -37,12 +45,13 @@ lattice::lattice(const unsigned dim, const double T)
     _E = 0.;
     _E_variance = 0.;
     _khi = 0.;
-    _mc_cycles = 0.;
+    _mc_cycles = 1;
     _M = 0.;
     _T = T;
-    double beta = 1. / (K * _T);
+    double beta = 1. / (K * _T);    //  K is set to 1 but this allows to change it easilly
     
     //  spins initialization
+    
     _config = new int*[dim];
     for(int i = 0; i < dim; i++)
     {
@@ -58,16 +67,15 @@ lattice::lattice(const unsigned dim, const double T)
     }
     
     //  delta-energies initializations
-    //  exp(-beta * delta-energy)
-    _precalc = new double[7];
-
-    _precalc[0] = exp(8. * J * beta);   //  zero spin-up
-    _precalc[1] = exp(4. * J * beta);   //  one spin-up
-    _precalc[2] = exp(- 4. * J * beta); //  three spins-up
-    _precalc[3] = exp(- 8. * J * beta); //  four spins-up
-    _precalc[4] = 8. * J;               //  +/- delta-energy for four or zero spin(s)-up
-    _precalc[5] = 4. * J;               //  +/- delta-energy for three or one spin(s)-up
-    _precalc[6] = beta;                 //  1. / (K * _T)
+    _precalc = new double[7];   //  not very elegant but does the job
+    
+    _precalc[0] = exp(8. * J * beta);
+    _precalc[1] = exp(4. * J * beta);
+    _precalc[2] = exp(- 4. * J * beta);
+    _precalc[3] = exp(- 8. * J * beta);
+    _precalc[4] = 8. * J;
+    _precalc[5] = 4. * J;
+    _precalc[6] = beta;
     
     _averages = new double[4];
 }
@@ -123,7 +131,7 @@ lattice::~lattice()
     delete[] _precalc;
 }
 
-//  randomize the lattice
+//  modify the lattice
 
 void lattice::randomize(void)
 {
@@ -143,8 +151,6 @@ void lattice::randomize(void)
 
 /////////
 
-//  all spins down
-
 void lattice::negativize(void)
 {
     _emptyness_test();
@@ -160,8 +166,6 @@ void lattice::negativize(void)
 
 /////////
 
-// all spins up
-
 void lattice::positivize(void)
 {
     _emptyness_test();
@@ -176,8 +180,6 @@ void lattice::positivize(void)
 }
 
 /////////
-
-//  flip a spin
 
 void lattice::change(const unsigned row, const unsigned col)
 {
@@ -217,73 +219,79 @@ void lattice::change(const unsigned row, const unsigned col, const int spin)
 
 void lattice::montecarlo(const unsigned long mc_cycles, const std::string folder, int argc, char* argv[])
 {
+    MPI_Init(&argc, &argv);
     unsigned* position = new unsigned[2];   //  position of the randomly flipped spin
-    double* mpi_send = new double[6];       //  <E>, <|M|>, variance(E), Cv, Khi, accepted_configs
-    double* mpi_receive = new double[6];    //  idem
+    int rank;
     
     _mc_cycles = mc_cycles;
-    MPI_Init(&argc, &argv);
     std::ofstream out_values(folder + "values(cycle)");
+    std::ofstream out_energy(folder + "energies proba");
+    std::vector<double> energy_list;    //  vector which contains all the energies appearing, counting multiplicities
     
-    _E = energy();
+    if(_T < 1.5)  positivize(); //  ground state spin orientation
+    _E = energy();              //  initialize the expected values to be incremented with their variations at each cycle
     _M = magnetization();
-    _accepted_configs = 0;
     
-    for(unsigned long cycle = 0; cycle < _mc_cycles; cycle++)
+    for(unsigned long cycle = 0; cycle <= _mc_cycles; cycle++)
     {
-        _metropolis(position);
-        _update_averages(position);
-        _output(out_values, mpi_send, mpi_receive, cycle);
+        _metropolis(position);      //  makes a move, accept and reject it and computes E and M
+        energy_list.push_back(_E);  //  add the energy to the list, again with multiplicities
+        _update_averages(position); //  here we update the values of <E>, <|M|>, etc according to what _metropolis did
+        _output(out_values, cycle);  //  we use MPI_Reduce here and output one set of averages every 250 cycles
+        //  the averages are thus functions of the number of completed cycles
     }
+
+    _energy_proba(out_energy, energy_list, rank);   //  takes the list of energies, sorts it, counts and delete multiplicities
     
-    MPI_Finalize();
     out_values.close();
+    out_energy.close();
     delete[] position;
-    delete[] mpi_send;
-    delete[] mpi_receive;
+    MPI_Finalize();
 }
 
 /////////
 
 void lattice::montecarlo(const unsigned long mc_cycles, const double final_temp, const double temp_step, const std::string folder, int argc, char* argv[])
 {
-    if(final_temp < _T || temp_step > (final_temp - _T))
+    if(final_temp <= _T || temp_step > (final_temp - _T))
     {
         std::cout << "The final temp must be greater than the initial temp." << std::endl;
         std::cout << "The temp-step must be reasonable." << std::endl;
         exit(6);
     }
     
-    unsigned* position = new unsigned[2];   //  position of the randomly flipped spin
-    double* mpi_send = new double[6];       //  <E>, <|M|>, variance(E), Cv, Khi, accepted_configs
-    double* mpi_receive = new double[6];    //  idem
+    //  this functions is just a loop of the above function over temp-steps
+    //  see the comments above
     
-    _mc_cycles = mc_cycles;
     MPI_Init(&argc, &argv);
     std::ofstream out_values(folder + "values(temp)");
+    unsigned* position = new unsigned[2];   //  position of the randomly flipped spin
     
-    while(_T < final_temp)
+    _mc_cycles = mc_cycles;
+    if(_T < 1.5)    positivize();
+    
+    while(_T <= final_temp) //  we repeat monte-carlo until the max temp is reached
     {
         _E = energy();
         _M = magnetization();
         _accepted_configs = 0;
         
-        for(unsigned long cycle = 0; cycle < _mc_cycles; cycle++)
+        for(unsigned long cycle = 0; cycle < _mc_cycles; cycle++)   //  Monte-Carlo
         {
             _metropolis(position);
             _update_averages(position);
         }
         
-        _output(out_values, mpi_send, mpi_receive);
+        //  this time we only output the final average
+        // we are interested in the evolution of the quantities with the temperature
+        _output(out_values);
         _T += temp_step;
         _update_precalc();
     }
     
-    MPI_Finalize();
     out_values.close();
     delete[] position;
-    delete[] mpi_send;
-    delete[] mpi_receive;
+    MPI_Finalize();
 }
 
 //  calculations
@@ -296,6 +304,7 @@ double lattice::energy(void) const
     {
         for(unsigned col = 0; col < _dim; col++)
         {
+            //  we must not count twice the same spin
             energy_lattice -= (double) _config[row][col] * _config[_periodic(row, _dim, -1)][col] + _config[row][_periodic(col, _dim, -1)];
         }
     }
@@ -322,17 +331,17 @@ double lattice::energy_delta(const unsigned row, const unsigned col) const
     
     int neighbors_sum = neighbors_spins_sum(row, col);
     
-    if(neighbors_sum == 4)          return (- (double) _config[row][col] * _precalc[4]);    //  four spins-up
-    else if(neighbors_sum == 2)     return (- (double) _config[row][col] * _precalc[5]);    //  three spins-up
-    else if(neighbors_sum == 0)     return (0.);                                            //  two spins-up
-    else if(neighbors_sum == -2)    return ((double) _config[row][col] * _precalc[5]);      //  one spin-up
-    else if(neighbors_sum == -4)    return ((double) _config[row][col] * _precalc[4]);      //  zero spin-up
+    //  the conditions represent the boundary conditions
+    if(neighbors_sum == 4)          return (- (double) _config[row][col] * _precalc[4]);
+    else if(neighbors_sum == 2)     return (- (double) _config[row][col] * _precalc[5]);
+    else if(neighbors_sum == 0)     return (0.);
+    else if(neighbors_sum == -2)    return ((double) _config[row][col] * _precalc[5]);
+    else if(neighbors_sum == -4)    return ((double) _config[row][col] * _precalc[4]);
     
     else
     {
         std::cout << "Error in \"energy_delta\"" << std::endl;
         exit(5);
-        return (-1);
     }
 }
 
@@ -341,10 +350,7 @@ double lattice::energy_delta(const unsigned row, const unsigned col) const
 
 double lattice::energy_delta(const unsigned* position) const
 {
-    unsigned row = position[0];
-    unsigned col = position[1];
-    
-    return(energy_delta(row, col));
+    return(energy_delta(position[0], position[1]));
 }
 
 ////////
@@ -358,6 +364,9 @@ double lattice::exp_energy_delta(const unsigned row, const unsigned col) const
     bool positive = _config[row][col] == 1;
     bool negative = _config[row][col] == -1;
     
+    //  we use a th precalculations here, they are initialized whe the object is created
+    //  those are test to determine in which case we are, depending on the sum of the neighbors
+    
     if((neighbors == 4 && negative) || (neighbors == 0 && positive))
     {
         return (_precalc[3]);   //  exp(-8 * beta * J)
@@ -368,7 +377,7 @@ double lattice::exp_energy_delta(const unsigned row, const unsigned col) const
     }
     else if(neighbors == 2)
     {
-        return (1.);            //  exp(0)
+        return (1.);            //  exp(0) = 1
     }
     else if((neighbors == 1 && negative) || (neighbors == 3 && positive))
     {
@@ -401,7 +410,7 @@ double lattice::magnetization(void) const
     {
         for(unsigned col = 0; col < _dim; col++)
         {
-            magnet += _config[row][col];
+            magnet += (double) _config[row][col];
         }
     }
     
@@ -440,8 +449,6 @@ int lattice::neighbors_spins_sum(const unsigned row, const unsigned col) const
     _emptyness_test();
     _domain_test(row, col);
     
-    //  relative position of the neighbors spins
-
     int s1, s2, s3, s4;
     
     if((long) col - 1 < 0)  s1 = _config[row][_dim - 1];
@@ -458,11 +465,56 @@ int lattice::neighbors_spins_sum(const unsigned row, const unsigned col) const
 
 //  outputs
 
-void lattice::_output(std::ofstream& out_values, double* mpi_send, double* mpi_receive, unsigned long cycle)
+void lattice::_energy_proba(std::ofstream& out_energy, std::vector<double>& energy_list, int rank) const
+{
+    std::vector<std::vector<double>> energy_proba;
+    double count;
+    unsigned long i;
+    unsigned long j;
+    
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    std::sort(energy_list.begin(), energy_list.end());  //  sort the energies
+    
+    //  the idea is to go through the sorted list of the energies
+    //  while the energy is the same as the previous energy, we count the occurences
+    //  when the condition is not verifies anymore, we add the energy to the new list
+    //  we add its probability as well
+    //  we continue this by starting again at the last energy counted
+    
+    if(rank == 0)
+    {
+        i = 1;
+        
+        while(i < energy_list.size())    //  go through the list of energies
+        {
+            j = i;
+            count = 1;
+            
+            while(abs(energy_list[j] - energy_list[j-1]) == 0.)    // tolerance
+            {
+                count++;
+                j++;
+            }
+            
+            energy_proba.push_back({energy_list[j], count});
+            out_energy << energy_proba.back()[0] << setw(15) << energy_proba.back()[1] / _mc_cycles << std::endl;
+            i += count;
+        }
+    }
+}
+
+////////
+
+void lattice::_output(std::ofstream& out_values, unsigned long cycle)
 {
     if(cycle % 250 == 0)
     {
         int numprocs;
+        double* mpi_send = new double[6];       //  <E>, <|M|>, variance(E), Cv, Khi, accepted configs
+        double* mpi_receive = new double[6];    //  idem
+        
+        //  we create a temporary array to send the calculated averages to MPI
+        
         mpi_send[0] = _averages[0] / cycle;       //  <E>
         mpi_send[1] = abs(_averages[2]) / cycle;  //  <|M|>
         mpi_send[2] = _E_variance;                //  variance(E)
@@ -472,6 +524,9 @@ void lattice::_output(std::ofstream& out_values, double* mpi_send, double* mpi_r
         
         MPI_Reduce(mpi_send, mpi_receive, 6, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
         MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
+        
+        //  we get the sum of the data in mpi_receive
+        //  and we make the average with the number of threads
         
         if(mpi_receive[0] != 0)
         {
@@ -483,14 +538,22 @@ void lattice::_output(std::ofstream& out_values, double* mpi_send, double* mpi_r
             out_values << mpi_receive[4] / (double) numprocs  << setw(15);
             out_values << mpi_receive[5] / (double) numprocs  << std::endl;
         }
+        
+        delete[] mpi_send;
+        delete[] mpi_receive;
     }
 }
 
 ////////
 
-void lattice::_output(std::ofstream& out_values, double* mpi_send, double* mpi_receive)
+void lattice::_output(std::ofstream& out_values)
 {
+    //  see above
+    
     int numprocs;
+    double* mpi_send = new double[6];       //  <E>, <|M|>, variance(E), Cv, Khi, accepted configs
+    double* mpi_receive = new double[6];    //  idem
+    
     mpi_send[0] = _averages[0] / _mc_cycles;        //  see above
     mpi_send[1] = abs(_averages[2]) / _mc_cycles;
     mpi_send[2] = _E_variance;
@@ -508,6 +571,9 @@ void lattice::_output(std::ofstream& out_values, double* mpi_send, double* mpi_r
     out_values << mpi_receive[3] / (double) numprocs << setw(15);  //  Cv
     out_values << mpi_receive[4] / (double) numprocs << setw(15);  //  Khi
     out_values << mpi_receive[5] / (double) numprocs << std::endl; //  accepted configs
+    
+    delete[] mpi_send;
+    delete[] mpi_receive;
 }
 
 /////////
@@ -593,7 +659,9 @@ void lattice::print(std::string folder) const
 
 void lattice::_metropolis(unsigned* position)
 {
-    change_random_spin(position);
+    change_random_spin(position);   //  flips a random spin and gets its position
+    
+    //  now we perform the Metropolis tests
     
     if(energy_delta(position) <= 0) //  accept the move
     {
